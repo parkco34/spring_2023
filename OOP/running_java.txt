@@ -1,0 +1,11 @@
+=> Program: 
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello World!");
+        }
+}
+
+=> Run Java script:
+    javac HelloWorld.java
+    java HelloWorld
+   
