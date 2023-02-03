@@ -17,11 +17,11 @@
 #include <iostream>
 #include <cmath>
 
-using namespae std;
+using namespace std;
 
 int main()
 {
-    const float CARTON = 3.78   // MIlk carton in liters
+    const float CARTON = 3.78;   // MIlk carton in liters
     float milk;
     double cost;
     double profit;

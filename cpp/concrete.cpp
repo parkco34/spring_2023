@@ -4,16 +4,13 @@
  *  where 1 cubic yard = 27 cubic feet 
  Program returns the length and width of the patio...
 ------------------------------------------------------------
-V = L X W X H, where L=length, w=width, H=height, and
-L = V / (W x H) and
-W = V / (L x H)...
-L/W = V / (W^2 x H)
+V = L X W X H, where L=length, w=width, H=height
  */
 #include <iostream>
 
 using namespace std;
 
-float sqrt(int radicand)
+float mysqrt(int radicand)
 {
     // ************************************************
     // Taken from G4G:
@@ -51,7 +48,7 @@ float sqrt(int radicand)
         }
     }
 
-    // Finding the fractional part of sqrt to five decimal places
+    // Finding the fractional part of mysqrt to five decimal places
     float increment = 0.1;
     for (int i=0; i < 5; i++) {
         while (ans * ans <= radicand) {
@@ -71,8 +68,8 @@ int main()
     double thickness;
     double lw_ratio;
 
-    double width = sqrt(mix_cbyrd / thickness * lw_ratio);
-    double length = sqrt(mix_cbyrd * lw_ratio / thickness);
+    double width = mysqrt(mix_cbyrd / thickness * lw_ratio);
+    double length = mysqrt(mix_cbyrd * lw_ratio / thickness);
 
     cout << "Enter the amount of concrete mix you wish to purchase (in cubic yards: 1 cbyrd = 27 cubic feet)\n";
     cin >> mix_cbyrd;
@@ -82,7 +79,7 @@ int main()
     cout << "\nEnter Ratio of the length and with: \n";
     cin >> lw_ratio;
 
-    cout << "\nThe length is " << sqrt(mix_cbyrd / height * lw_ratio)<< "\nThe width is " << sqrt(mix_cbyrd * lw_ratio / height)<< "." << endl;
+    cout << "\nThe length is " << mysqrt(mix_cbyrd / height * lw_ratio)<< "\nThe width is " << mysqrt(mix_cbyrd * lw_ratio / height)<< "." << endl;
     return 0;
 }
 
@@ -90,6 +87,8 @@ int main()
 mix = 30
 thickness = 2.75
 length-width ratio = 1.25
-
+-------------------------
+Result: 
+    length = 
 
  * */
