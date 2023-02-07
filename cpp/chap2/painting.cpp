@@ -5,17 +5,17 @@ using namespace std;
 int main()
 {
     const int GALLON = 120;  // Square feet
-    float door_length;
-    float door_width;
-    float window_length1;
-    float window_width1;
-    float window_length2;
-    float window_width2;
-    float bookshelf_width;
-    float bookshelf_length;
-    float room_length;
-    float room_width;
-    float room_height;
+    double door_length;
+    double door_width;
+    double window_length1;
+    double window_width1;
+    double window_length2;
+    double window_width2;
+    double bookshelf_width;
+    double bookshelf_length;
+    double room_length;
+    double room_width;
+    double room_height;
 
     // door
     cout << "Enter the length: (in feet): " << endl;
@@ -48,11 +48,11 @@ int main()
     cin >> room_height;
    
     // Areas calculation
-    float windows = (window_width1 * window_length1) + (window_length2 * window_width2);
-    float door_area = door_length * door_width;
-    float bookshelf = bookshelf_width * bookshelf_length;
-    float walls = 2 * room_height * (room_width + room_length);
-    float paint = walls - (door_area + bookshelf + windows);
+    double windows = (window_width1 * window_length1) + (window_length2 * window_width2);
+    double door_area = door_length * door_width;
+    double bookshelf = bookshelf_width * bookshelf_length;
+    double walls = 2 * room_height * (room_width + room_length);
+    double paint = walls - (door_area + bookshelf + windows);
 
     cout << "Door: " << door_area << endl;
     cout << "Windows: " << windows << endl;
