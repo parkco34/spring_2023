@@ -37,5 +37,16 @@ class Newton
 //    massOfMoon = 7.35E22;
 //    earthMoonDistance = 384.4E6;
 //    ---------------------------
-//    force = 
+//    force = 1.983E20
 //    ---------------------------
+//  ***************************************************
+//  QUESTIONS:
+//  ---------
+//  1) Space between input device and program itself
+//  2) ALL CAPS (UNDERSCORES allowed)
+//  3) final, which will prevent the value from being changed later
+//  4) static method is used with respect to CLASSES, while instance methods are
+//      used with respect to OBJECTS
+//  5) Math.pow(int, int)
+//  6) input.nextDouble()
+//  ***************************************************
