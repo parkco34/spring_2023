@@ -48,9 +48,9 @@ class FoodDelivery
         double tip = input.nextDouble();
 
         // Delivery fee
-        double deliveryFee = DELIVERY_FEE * cost + SERVICE_CHARGE;
+        double deliveryFee = DELIVERY_FEE * (cost + SERVICE_CHARGE);
         double costWithFees = cost + SERVICE_CHARGE + deliveryFee; // Cost with service/delivery fees
-        double salesTax = TAX * cost + SERVICE_CHARGE + deliveryFee;
+        double salesTax = TAX * (cost + SERVICE_CHARGE + deliveryFee);
         double subtotal = costWithFees + salesTax;  // Cost with service/delivery fees sales tax
         double total = subtotal * (1 + tip);   // Total amount due
 
