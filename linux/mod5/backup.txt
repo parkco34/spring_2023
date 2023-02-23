@@ -1,0 +1,10 @@
+========================================================================================================================
+To begin, the user Student1 must be added to the /etc/sudoers list.  This file cannot be edited directly.  Switch to root with the password <b>p@ssw0rd</b> and use the <b>visudo</b> command.  Arrow down to the end of the file and look just under the line <b>root ALL=(ALL) ALL</b>.  Press <b>i</b> to enter insert mode and add the line <b>Student1 ALL=(ALL) ALL</b>.  Press the ESC key and then type : (colon) and <b>wq</b>.  Press Enter to save and exit the file.  Switch to user Student1.
+========================================================================================================================
+
+
+su root
+
+visudo
+
+root ALL=(ALL) ALL
