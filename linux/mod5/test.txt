@@ -1,0 +1,17 @@
+1) Jackson wants to automatically mount a secondary internal hard drive when his Linux workstation boots up. In which of the following files should he configure an entry for the partition on the drive that he wants to mount?
+
+2) Aria has modified the hard disk that hosts the operating system by using the fdisk command. The fdisk command indicates that the new partition information must be manually reloaded. Which of the following should she do next? (Choose two. Either answer is independently correct.)
+
+3) Which of the following would be the device file for the third partition on the second SATA drive on a Linux system?
+
+4) If the physical extent of a volume group is set to 32MB, what is the maximum logical volume size?
+
+5) Which of the following commands cannot be used to create an exFAT filesystem on a USB thumb drive that is recognized as /dev/sdb?
+
+6) Clint has run the command parted /dev/sdb and wants to display a list of the existing partitions that exist on that drive. Which of the following commands can he use to display the existing partitions?
+
+7) Callie wants to make sure that a filesystem is checked every 20 days. Which of the following options, when used with the tune2fs command, would set a full filesystem check to run every 14 days?
+
+8) Elijah is done working with an external USB hard drive and wants to properly disconnect it. Which of the following commands should he use before unplugging the USB cable?
+
+

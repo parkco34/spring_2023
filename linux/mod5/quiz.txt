@@ -1,0 +1,46 @@
+1) Given the following output from /etc/fstab, which filesystems will be automatically checked on boot by the fsck command?
+
+/dev/sda1 / ext4 defaults 1 1
+none /dev/pts devpts gid=5,mode=620 1 0
+none /proc proc defaults 0 1
+none /dev/shm tmpfs defaults 1 0
+/dev/sdc2 swap swap defaults 0 1
+/dev/dvd /media/dvd iso9660 noauto,ro 0 0:
+
+2) A user mounts a device to a mount point directory and realizes afterward she needs files previously found within the mount point directory. 
+What should this user do?
+
+3) Which command is used to display the amount of free space that exists on a filesystem?
+
+4) What must you do to successfully run the fsck command on a filesystem?
+
+5) Character devices typically transfer data more quickly than block devices. True or False?
+
+6) What does the du -s /var command do?
+
+7) What does the command dumpe2fs –h do?
+
+8) Which command can be used to repair an XFS filesystem?
+
+9) True statements:
+    - Quotas can limit both user space and the number of files a user can own.
+    - Hard limits can never be exceeded
+    - Soft limits allow a user to exceed them for a certain period of time
+
+10) A device file ____:
+    - Has no data section
+    - Displays major and minor number in place of a file size
+
+11) What about LVMs?
+
+12) The lvextend command can be used to add unused space within a volume group to an existing logical volume. True or False?
+
+13) You plug a USB flash memory drive into a system that has two SATA hard disks. How will the partition on this USB flash memory drive be identified by Linux?
+
+14) command mounts all existing filesystems in /etc/fstab?
+
+15) A user runs the fsck command with the -f option on an ext4 filesystem that is showing signs of corruption. How would that user locate any files the system was unable to repair?
+
+16) Which command is used to format a partition on a hard disk drive with the ext4 filesystem?
+
+

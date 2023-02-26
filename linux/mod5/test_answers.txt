@@ -1,0 +1,9 @@
+1) /etc/fstab 
+2) Run the partprobe command
+   Reboot the system 
+3) /dev/sdb3
+4) 2TB
+5) mkfs exfat /dev/sdb1
+6) print
+7) -i 14d
+8)umount

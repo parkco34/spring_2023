@@ -1,0 +1,16 @@
+
+
+1) /, /proc, and swap
+2) Unmount the device from the directory
+3) df
+4) Unmount the filesystem
+5) False
+6) displays the total size of the /var directory
+7) displays the number of used and available inodes for an ext2/ext3/ext4 filesystem
+8) xfs_repair /dev/sdb1
+9) VGs are comprised of one or more PVs
+12) true
+13) /dev/sdc1
+14) mount -a
+15) Mount the filesystem and check the lost+found directory underneath the mount point.
+16) e2mkfs –t ext4 device
