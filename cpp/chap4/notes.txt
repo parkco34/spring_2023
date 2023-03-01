@@ -1,0 +1,10 @@
+1) The statement cin.get(ch); inputs the next nonwhitespace character into the variable ch. (4)
+    b. False	
+
+2) When the input stream enters the fail state, the program terminates with an error message. (5)
+    b. False	
+
+3) To use the manipulators fixed and showpoint, the program does not require the inclusion of the header file iomanip
+    True
+
+4) 
