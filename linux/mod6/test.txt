@@ -1,0 +1,23 @@
+1) Which command should you run after installing a new kernel module to update the module dependency database?
+    depmod
+
+2) Leonard wants to find detailed information about the Bluetooth kernel module. Which of the following commands can he use to display this information?
+    modinfo bluetooth 
+
+3) In order to create and manage KVM or Qemu virtual machines, a Linux system must have which of the following installed?
+    libvert
+
+4) Which of the following commands will display messages that were displayed during the boot sequence by the kernel?
+    dmesg 
+
+5) Which of the following commands can be used to display general hardware information for the entire system?
+    lshw
+
+6) Which of the following commands will display the current CPU(s) detected by a Linux system?
+    cat /proc/cpuinfo
+
+7) Which of the following is a type of software that allows a piece of hardware to host multiple operating systems?
+    hypervisor
+
+8) On a system using the KVM hypervisor, which of the following modules would you expect to see as part of the output of the lsmod command on a guest Linux virtual machine?
+    virtio

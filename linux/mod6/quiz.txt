@@ -1,0 +1,63 @@
+1) BTRFS filesystems do not need to be checked for errors as they are resilient to data corruption. True or False?
+    false
+
+2) Which of the following describes a computer that is used to access an iSCSI hard disk across the network?
+    iSCSI initiator
+
+3) You want to view log files to get information about a problem that occurred during a Linux installation. In which directory will you likely find the log files?
+    /var/log
+
+4) Which of the following RAID levels is not fault tolerant?
+     RAID 0 	
+
+5) Which command can you use during a system rescue to switch from the root of the live OS to the root of the Linux system installed on the hard disk?
+    chroot
+
+6) Which of the following is not a type of RAID?
+    serial RAID 	
+
+7) When configuring a virtual hard disk file, which term refers to the feature that allows the virtual hard disk file to expand dynamically as space is requested by the guest operating system?
+    thin provisioning
+
+8) DM-MPIO can be configured to provide multiple, redundant connections to data stored on a SAN. True or False?
+    false
+
+9) What component of a Linux server is used to connect to a Fibre Channel SAN?
+    FC HBA
+
+10) Which type of RAID can be entirely configured during the Linux installation process?
+    software RAID
+
+11) What command can be used to create a ZFS volume called test from the space on /dev/sdb and /dev/sdc that functions like RAID level 1?
+    zpool create test mirror /dev/sdb /dev/sdc
+
+12) To which directory will the test ZFS volume from the previous question be mounted by the ZFS system?
+    /test
+
+13) Linux servers are typically installed in a rack using rackmount server hardware. Which of the following describes the minimum height of a rackmount server?
+    U1
+
+14) Which of the following commands can quickly determine whether your network hardware was detected properly following a Linux installation?
+    lshw -class network
+
+15) ZFS volumes are mounted at boot time from entries within /etc/fstab by default. True or False?
+    false
+
+16) Which of the following could result in a segmentation fault (fatal signal 11) during a Fedora installation?
+     RAM problems 	
+	 overclocked CPU 	
+     faulty hardware components 
+
+ 17) When viewing the output of the lsmod command, you notice several modules that start with vmw. What does this indicate?
+    Linux is running as a guest operating system
+
+18) What type of redundant storage configuration is most common for hosting the operating system and applications on a server?
+    RAID 1
+
+19) Where is the /proc filesystem stored?
+    in RAM
+
+20) Which of the following commands can be used on a modern Linux system to view hardware information that was captured at the beginning of the boot process?
+    journalctl -k
+
+
