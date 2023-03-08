@@ -1,10 +1,9 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-
-public class file2 
+public class Program2
 {
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
 
         Scanner scanner = new Scanner(System.in);
@@ -75,4 +74,5 @@ public class file2
         scanner.close();
     }
 }
+
 

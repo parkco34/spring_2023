@@ -1,59 +1,63 @@
-#include <iostream>
-#include <iomanip>
 #include <fstream>
-
+#include <iomanip>
 using namespace std;
 
-int main()
-{
-    const double COMMISSION_PERCENTAGE = 0.3;
+int main() {
+    // Declare variables for the current and previous employee IDs, total sales, and total commissions
+    int empID, prevEmpID = 0, recordCount = 0;
+    double retail, base, commission, totalSales = 0.0, totalCommission = 0.0, prevCommission = 0.0;
 
-    int id, prevId;
-    double retail, base, commission;
-    double totalSales, totalCommission;
-
-    ifstream inFile;
-    inFile.open("carsales.dat");
-    
-    // Check if file openly properly
-    if (!inFile) {
-        cout << "Error!  Could not open file\n";
+    // Open the input file and check for errors
+    ifstream inputFile("carsales.dat");
+    if (!inputFile) {
+        cerr << "Error: could not open input file" << endl;
         return 1;
     }
 
-    // Initial File reading
-    inFile >> id;
-    prevId = id;
- 
-    cout << "WEEKLY SALES REPORT" << endl;
-    cout << "Employee    Retail\tBase\tCommission" << endl;
-    cout << fixed << setprecision(2);
+    // Output the report header
+    cout << setw(36) << "WEEKLY SALES REPORT" << endl;
+    cout << "Employee Retail    Base     Commission" << endl;
 
-    // As long as there's stuff to read from file, readi it
-    while (inFile >> retail >> base)
-    {
-        // If employee ID is the same, accumulate sums
-        // Gauranteed to run for the first iteration
-        if (id == prevId) {
-            totalSales += retail;
-            totalCommission += base * COMMISSION_PERCENTAGE;
-            cout << "\nID: " << id << "\nRetail: " << retail << "\nBase: " << base << "\nCommission: " << ((base*COMMISSION_PERCENTAGE) >= 100 ? (base*COMMISSION_PERCENTAGE) : 100) << endl;
+    // Process each record in the file
+    while (inputFile >> empID >> retail >> base) {
+        // Calculate the commission for the current record
+        commission = max(0.3 * base, 100.0);
+
+        // If the employee ID has changed, display the total commission for the previous employee
+        if (empID != prevEmpID) {
+            if (prevEmpID != 0) {
+                cout << "***Total Commission for " << prevEmpID << ": " << fixed << setprecision(2) << prevCommission << endl;
+            }
+            prevEmpID = empID;
+            prevCommission = 0.0;
         }
-        else {  // Otherwise initialize our sums to zero and setting our previous ID to the current value
-            cout << "\n***Total Commission for " << prevId << ": " << totalCommission << endl;
-            cout << "==================================================\n" << endl;
-            cout << "ID: " << id << "\nRetail: " << retail << "\nBase: " << base << "\nCommission: " << ((base*COMMISSION_PERCENTAGE) >= 100 ? (base*COMMISSION_PERCENTAGE) : 100) << endl;
-            totalSales = 0;
-            totalCommission = 0;
-            prevId = id;
-        }
-        
-        inFile >> id;
+
+        // Add the commission for the current record to the total commission for the current employee
+        prevCommission += commission;
+
+        // Output the current record
+        cout << setw(6) << empID << " ";
+        cout << fixed << setprecision(2) << setw(9) << retail << " ";
+        cout << fixed << setprecision(2) << setw(8) << base << " ";
+        cout << fixed << setprecision(2) << setw(11) << commission << endl;
+
+        // Add the sales for the current record to the total sales and increment the record count
+        totalSales += retail;
+        recordCount++;
     }
 
-    cout << "\n***Total Commission for " << prevId << ": " << totalCommission << endl;
-    cout << "==================================================" << endl;
+    // Display the total commission for the last employee
+    cout << "***Total Commission for " << prevEmpID << ": " << fixed << setprecision(2) << prevCommission << endl;
 
-    inFile.close();
+    // Output the record count, total sales, and total commission
+    cout << endl << "Records: " << recordCount << endl;
+    cout << "Total Sales: " << fixed << setprecision(2) << totalSales << endl;
+    cout << "Total Commissions: " << fixed << setprecision(2) << prevCommission << endl;
+
+    // Close the input file
+    inputFile.close();
+
     return 0;
 }
+
+
