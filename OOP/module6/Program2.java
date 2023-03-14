@@ -33,4 +33,6 @@ public class Program2 {
 // QUESTIONS
 // 1) code that may potentially throw an exception.
 // 2) False
-// 3) 
+// 3) The more specific catch block should occur prior to the more general one.
+// 4) keyboard.nextLine() 
+// 5) in the InputMismatchException block only
