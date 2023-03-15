@@ -2,18 +2,7 @@
 
 using namespace std;
 
-bool isVowel(char letter)
-{
-    if (letter >= 'a' && letter <= 'z') {
-        letter -= 32;
-    }
-
-    if (letter == 'A' || letter == 'E' || letter == 'I'
-            || letter == 'O' || letter == 'U')
-        return true;
-    else
-        return false;
-}
+bool isVowel(char);
 
 int main() {
     string str;
@@ -33,5 +22,16 @@ int main() {
     return 0;
 }
 
+bool isVowel(char letter)
+{
+    if (letter >= 'a' && letter <= 'z') {
+        letter -= 32;
+    }
 
+    if (letter == 'A' || letter == 'E' || letter == 'I'
+            || letter == 'O' || letter == 'U')
+        return true;
+    else
+        return false;
+}
 

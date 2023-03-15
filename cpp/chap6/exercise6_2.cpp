@@ -1,6 +1,15 @@
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
+bool isVowel(char);
+
+int main()
+{
+  char letter;
+  cin >> letter;
+  isVowel(letter);
+}
 
 bool isVowel(char letter)
 {
@@ -13,12 +22,5 @@ bool isVowel(char letter)
         cout << letter << " is a vowel: " << false << endl;
         return false;
     }
-}
-
-int main()
-{
-  char letter;
-  cin >> letter;
-  isVowel(letter);
 }
 
