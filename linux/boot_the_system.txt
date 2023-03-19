@@ -1,0 +1,83 @@
+Which command can be used to modify the default locale on the system?
+    - localectl 	
+
+
+After modifying /etc/default/grub, you must run the grub2-mkconfig command before the changes are made to GRUB2
+
+Which directory stores most UNIX SysV rc scripts?:
+    - /etc/init.d
+
+Which runlevel halts the system?
+    - 0
+
+Which file does the UNIX SysV init daemon reference on startup to determine the default runlevel?
+    - /etc/inittab
+
+Which command can be used to start X Windows, the window manager, and the default desktop environment?
+    - startx
+
+Which of the following indicates the second MBR partition on the third hard disk drive to GRUB2?
+    - hd2,msdos2 	
+
+Which two implementations of X Windows are commonly used in Linux?:
+    - X.org
+    - Wayland
+
+What is the name of the directory that contains symbolic links to UNIX SysV rc scripts for runlevel 2?
+    -  /etc/rc2.d
+
+In what directory is Stage 2 of the GRUB2 boot loader stored?
+    - /boot
+
+The first daemon loaded on a Linux system is init
+
+Which command causes the system to enter Single User Mode?
+    - init 1
+
+Which assistive technology will make a desktop environment more accessible to a person with low vision?
+    - HIgh contrast
+    
+You have recently modified the system time using the date command. What command can you run to ensure that the same time is updated within the system BIOS?
+    - hwclock -w
+
+You want to configure the runlevels that a particular upstart daemon is started in. What should you do?
+    - Modify the daemon configuration file within the /etc/init directory
+
+Which of the following Systemd commands can be used to stop a daemon called lala?
+    - systemctl stop lala.service
+
+Which of the following commands can be used to start a UNIX SysV daemon called lala in runlevels 1, 2 and 3?
+    - chkconfig --level 123 lala on
+
+What Systemd target corresponds to runlevel 5?
+    - graphical.target
+
+What kernel option can be specified within a boot loader to force the system to boot to Single User Mode?
+    - What kernel option can be specified within a boot loader to force the system to boot to Single User Mode?
+
+Which of the following will invalid entries in the GRUB2 configuration cause?
+    - kernel panic and halt the system
+
+Which of the following does a Linux kernel use to store the value of epoch time?
+    - The number of seconds since January 1, 1970
+
+Which of the following commands will show the current runlevel along with the previous runlevel?
+    - Which of the following commands will show the current runlevel along with the previous runlevel?
+
+Which of the following commands will shut down a Linux system?
+    - telinit 0
+    - shutdown -h now
+    - poweroff
+
+Which of the following options can be specified in the GRUB Legacy configuration file to set how long the boot menu is displayed before loading the default image?
+    - timeout
+
+Which of the following is the default window manager used by the GNOME version 3 desktop environment?
+    - mutter
+
+Which of the following can be used to compare the hardware clock to the system clock, writing a new result to a new line every 10 seconds?
+    - hwclock -c
+
+Which of the following commands can be used to convert files between different character encodings?
+    - iconv
+
