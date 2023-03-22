@@ -1,0 +1,11 @@
+A1010 Strawberry Shampoo 7.99 
+C3940 Liquid Vitamins 10.12 
+C9304 Diaper Rash Cream 6.58 
+C9854 Cleansing Wipes 4.15
+D2901 Nutritional Chocolate Shake 8.00
+F3743 Flashlight 6.21
+F4484 Dryer Clothes 4.20
+G3384 Smile Toothpaste 3.93
+H1192 Bath Bench 51.53
+H2324 Blood Pressure Monitor 34.61
+Z3445 Rejuvenating Serum 19.74
