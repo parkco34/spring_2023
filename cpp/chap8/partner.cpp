@@ -1,23 +1,31 @@
 // Hangman game
-#include <random>
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
 
 using namespace std;
 
 int main()
 {
+    const int MAX_STRINGS = 20;
+    int count = 0;
     ifstream infile("words.txt");
-    string words[20];
-    int index = rand() % 20;    // This is being used incorrectly
+    string words[MAX_STRINGS];
+    int indices[MAX_STRINGS];
 
-    for (int i=0; i<=19; i++) {
-        getline(infile, words[i]);
-    }
+    // Generates random seed based on current time
+    srand(time(NULL));
 
-    // Randomly slected word
-    string word = words[index];
+    // Build array with the 20 elements from word textfile
+    //  ~~~~~~~~~~~~~~  PLAN    ~~~~~~~~~~~~~~~~~~~~~~
+    // ==> Get number of words in file
+    // ==> Use that number to shuffle between 0 and the MAX for iNDICES
+    // ==> Build array using the randomized indices
+    // Randomly select the words in array
+
+
 //    string blank;
 //   
 //    // Asterisks for blank positions
