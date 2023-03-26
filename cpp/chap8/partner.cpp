@@ -48,7 +48,8 @@ int main()
     }
 
     string word;
-    // Randomly selects words from a textfile of any number of words    ᕙ(▀̿̿Ĺ̯̿̿▀̿ ̿) ᕗ
+    /* Randomly selects words from a textfile of any 
+     * number of words and stores them in array    ᕙ(▀̿̿Ĺ̯̿̿▀̿ ̿) ᕗ */
     while(getline(infile, word)) {
         if (rand() % (count + 1) < MAX_STRINGS) {
 
@@ -63,7 +64,7 @@ int main()
         count++;
     }
 
-    string blanks = get_blanks(word);
+    string blanks = get_blanks(words[rand() % 20]);
     cout << "Blanks: " << blanks << endl;
 
     return 0;
