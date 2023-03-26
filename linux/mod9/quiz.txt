@@ -1,0 +1,78 @@
+Which command entered without arguments is used to display a list of processes running in the current shell?
+    - ps
+
+Where are individual user tasks scheduled to run with the cron daemon stored on a Fedora system?
+    - /var/spool/cron/username
+
+Which process has a PID of 1 and a PPID of 0?
+    - init/systemd
+
+A process spawning or initiating another process is referred to as:
+    - forking
+
+As daemon processes are not associated with terminals, you must use an option such as –e alongside the ps command to view them. True or False?:
+    - True
+
+Which of the following commands will most likely increase the chance of a process receiving more time slices?
+    - renice -12
+
+How can you bypass the wait function and send a user process to the background?:
+    - You can use the Ctrl+z key combination and the bg command
+
+The at command is used to :
+    - schedule processes to run at a single instance in the future
+
+What command is used to view and modify user jobs scheduled to run with cron?:
+    - crontab
+
+Every process has a process ID and a:
+    - parent process ID 
+
+The pkill command terminates:
+    - all instances of a process with the same name matched by a regular expression 
+
+Nice values are used to affect process priorities using a range between:
+    - –20 and 19 	
+
+What is the name given to a process not associated with a terminal?:
+    - daemon process 	
+
+What kill level signal cannot be trapped?:
+    - 9
+
+A runaway process that is faulty and consuming mass amounts of system resources:
+    - is a rogue process 
+
+When you run the ps command, how are daemon processes recognized?:
+    - There is a question mark in the TTY column
+
+Which command is used to gain real-time information about processes running on the system, with the most processor-intensive processes listed at the beginning of the list?:
+    - top
+
+Which command can be used to see processes running in the background?:
+    - jobs
+
+Which of the following commands will send a process's resources to /dev/null to kill the process for process ID 1357?:
+    - kill -9 1357
+
+Which of the following commands will show the current user cron jobs that have been created for the currently logged in user?:
+    - crontab -l 
+
+Which of the following states describe a process that is waiting for a parent process to release its PID?:
+    - zombie
+
+Which of the following commands can be used to see files that are currently being used by a specific process ID (PID)?:
+    - lsof 	
+
+Which of the following can be used preceding a command to prevent a process from terminating when the parent process terminates?:
+    - nohup
+
+Which of the following characters, when pressed while the top program is running, will allow you to change the niceness of a process?:
+    - r
+
+Which of the following is the highest value that can be set for the nice value which would result in a greater chance of a lower priority?:
+    - 19
+
+A system administrator wants to allow most users to be able to run cron jobs, but wants to specifically prevent a couple of users from doing so. Which of the following files could the administrator edit to disallow these users from creating cron jobs?:
+    - /etc/cron.deny 	
+
