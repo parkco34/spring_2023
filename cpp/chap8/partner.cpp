@@ -7,46 +7,64 @@
 
 using namespace std;
 
+// 1) Randomly fill in array with words from textfile
+// 2) Update blanks with corresponding letters
+// 3) End game when number of attempts been reached or guess == word
+
+// Generate blanks for word
+string get_blanks(string theWord)
+{
+    string blanks;
+    for (int i=0; i < theWord.length(); i++) {
+        blanks += "*";
+    }
+
+    return blanks;
+}
+
+void updateBlanks(string word, string& blanks, char& guessedLetter)
+{
+    for (int i=0; i<word.length(); i++) {
+        if (guessedLetter == word[i]) {
+            blanks[i] = guessedLetter;
+        }
+    }
+}
+
 int main()
 {
     const int MAX_STRINGS = 20;
     int count = 0;
     ifstream infile("words.txt");
     string words[MAX_STRINGS];
-    int indices[MAX_STRINGS];
 
     // Generates random seed based on current time
-    srand(time(NULL));
+    srand(time(0));
 
-    // Build array with the 20 elements from word textfile
-    //  ~~~~~~~~~~~~~~  PLAN    ~~~~~~~~~~~~~~~~~~~~~~
-    // ==> Get number of words in file
-    // ==> Use that number to shuffle between 0 and the MAX for iNDICES
-    // ==> Build array using the randomized indices
-    // Randomly select the words in array
+    // Check that file opened correctly
+    if (!infile) {
+        cout << "Failed to open file" << endl;
+        return 1;
+    }
 
+    string word;
+    // Randomly selects words from a textfile of any number of words    ᕙ(▀̿̿Ĺ̯̿̿▀̿ ̿) ᕗ
+    while(getline(infile, word)) {
+        if (rand() % (count + 1) < MAX_STRINGS) {
 
-//    string blank;
-//   
-//    // Asterisks for blank positions
-//    for (int i=0; i < word.length(); i++) {
-//        blank += "*";
-//    }
-//
-//    string letter;  // Letter guess
-//    string guess;   // Word guess
-//    while(guess != word) {
-//        cout << "Guess a letter: " << endl;
-//        cin >> letter;
-//
-//        // Look thru the word to see if letter is in it
-//        for (int i=0; i<word.length(); i++) {
-//            blank.replace(i, 1, word);
-//
-//            cout << "Blank: " << blank << endl;
-//            cout << "Guess: " << guess << endl;
-//        }
-//    }
+            if (count < MAX_STRINGS) {
+                words[count] = word;
+            }
+            else {
+                int randIndx = rand() % MAX_STRINGS;
+                words[randIndx] = word;
+            }
+        }
+        count++;
+    }
+
+    string blanks = get_blanks(word);
+    cout << "Blanks: " << blanks << endl;
 
     return 0;
 }
