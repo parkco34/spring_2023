@@ -86,16 +86,16 @@ int main()
 
         // If player gets the word, quit game
         if (blanks == word) {
-            cout << "Congrats!  You got it!! " << endl;
+            cout << "Congrats!  You got it!! ┌П┐(►˛◄’!)" << endl;
             cout << "The word: " << word << endl;
             break;
         }
 
+        // When player guesses the same letter, no penalty
         while(guessed.find(guessedLetter) != string::npos) {
             cout << "You've already guessed that letter, yo ..." << endl;
             cin >> guessedLetter;
             guessedLetter = tolower(guessedLetter);
-            guesses--;
         }
  
         if (word.find(guessedLetter) != string::npos) {
@@ -104,11 +104,12 @@ int main()
         }
         else {
             cout << "Lo Siento ... " << endl;
+            guesses--;
         }
         guessed += guessedLetter;   // Add guessed letter to the string of guesses
-        guesses--;
 
         cout << "Guesses: " << guesses << endl;
+        cout << "Guessed: " << guessed << endl;
     }
 
     if (word != blanks) {
