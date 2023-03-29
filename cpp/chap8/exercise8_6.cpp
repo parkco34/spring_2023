@@ -1,12 +1,12 @@
 // ========================================================================
-//The students’ IDs and test answers are stored in a file. 
+//The students’ IDs and test answers are stored in a file.
 //The first entry in the file contains answers to the test in the form: TFFTFFTTTTFFTFTFTFTT
-//Every other entry in the file is the student ID, followed by a 
-//    blank, followed by the student’s responses. 
-// The exam has 20 questions, and the class has more than 150 students. 
+//Every other entry in the file is the student ID, followed by a
+//    blank, followed by the student’s responses.
+// The exam has 20 questions, and the class has more than 150 students.
 //
-//Write a program that processes the test data. 
-//The output should be the student’s ID, followed by the answers, followed by the test score, followed by the test grade. 
+//Write a program that processes the test data.
+//The output should be the student’s ID, followed by the answers, followed by the test score, followed by the test grade.
 //Assume the following grade scale:
 //    90%–100%, A
 //    80%–89.99%, B
@@ -14,7 +14,7 @@
 //    60%–69.99%, D
 //    0%–59.99%, F
 // ========================================================================
-// 1) Store answers and Students ID along with their answers in array and compare 
+// 1) Store answers and Students ID along with their answers in array and compare
 // 2) Test Score point system: Correct answers: +2; Incorrect answers: -1; No answer (blank space): 0
 #include <iostream>
 #include <fstream>
@@ -23,21 +23,14 @@
 
 using namespace std;
 
-// pointsystem function that compares the input answers to actual ansers outputting the integer number of points for each ID given
-double get_grade(char answer, char value)
+string split_array(string line, bool id=true)
 {
-    int points = 0;
-    if (answer == value) {
-        points += 2;
-        cout << "answer: " << answer << endl;
-        cout << "Points: " << points << endl;
-    }
-    else if (answer != value) {
-        points -= 1;
-        cout << "answer: " << answer << endl;
-        cout << "Points: " << points << endl;
-    }
-    return (points / 100);
+    /* If id is false, return the second
+     */
+    size_t pos = line.find(' '); // Find blank space to know when to append student's answers to array
+    if (pos != string::npos) {
+        id = line.substr(0, pos);
+        string substring = line.substr(pos+1);
 }
 
 int main()
@@ -55,7 +48,7 @@ int main()
         cout << "Lo Siento ... Failed to open file" << endl;
         return 1;
     }
-   
+
     while(getline(infile, line)) {
         if (counter == 0) {
             // Store correct answers in array for comparison
@@ -63,19 +56,10 @@ int main()
                 correct[i] = line[i];
             }
         }
-        
-        counter++;
-        size_t pos = line.find(' '); // Find blank space to know when to append student's answers to array
-        if (pos != string::npos) {
-            id = line.substr(0, pos);
-            string substring = line.substr(pos+1);
 
-            // Store Student's ID and grades in 2-D array
-            for (int i=0; i < substring.length(); i++) {
-                grade = get_grade(correct[i], substring[i]);
-            }
-        }
+        counter++;
     }
 
     return 0;
 }
+
