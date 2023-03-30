@@ -22,6 +22,7 @@ using namespace std;
 const int KIDS = 10;
 const int TESTS = 5;
 
+// Read text file, and do some stuff
 void readData(string names[], int scores[][TESTS], int& studentNum) 
 {
     ifstream infile("ch8_Ex13Data.txt");

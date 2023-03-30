@@ -14,8 +14,6 @@
 //    60%–69.99%, D
 //    0%–59.99%, F
 // ========================================================================
-// 1) Store answers and Students ID along with their answers in array and compare
-// 2) Test Score point system: Correct answers: +2; Incorrect answers: -1; No answer (blank space): 0
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -23,41 +21,38 @@
 
 using namespace std;
 
-string split_array(string line, bool id=true)
-{
-    /* If id is false, return the second
-     */
-    size_t pos = line.find(' '); // Find blank space to know when to append student's answers to array
-    if (pos != string::npos) {
-        id = line.substr(0, pos);
-        string substring = line.substr(pos+1);
-}
-
 int main()
 {
-    const int QUESTIONS = 20;
-    char correct[QUESTIONS]; // Correct answers
-    string id, line;
-    char grades[1][QUESTIONS]; // Student's ID and grade
-    char grade;
-    int counter = 0;
-    ifstream infile("Ch8_Ex6Data.txt");
+    const int MAX_LINES = 5;
+    const int KIDS = 4;
+    const int QUESTIONS = 30;
+    char answers[QUESTIONS];
 
-    // Ensure file opens properly and exists
-    if (!infile) {
-        cout << "Lo Siento ... Failed to open file" << endl;
+    ifstream infile("Ch8_Ex6Data.txt");
+    // Check if file opens properly
+    if(!infile) {
+        cerr << "Unable to open file ... " << endl;
         return 1;
     }
 
+    string line;
+    int counter = 0;
     while(getline(infile, line)) {
+        // Get Teacher's answers
         if (counter == 0) {
-            // Store correct answers in array for comparison
+            // Store teachers' answers in char array
             for (int i=0; i < line.length(); i++) {
-                correct[i] = line[i];
+                answers[i] = line[i];
+//                cout << answers[i] << " ";
             }
+            answers[line.length()] = '\0';
+            counter++;
+        }
+        else {
+            // get Ids
+            // SOmehow ....
         }
 
-        counter++;
     }
 
     return 0;
