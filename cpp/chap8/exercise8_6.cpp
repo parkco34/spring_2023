@@ -64,8 +64,7 @@ int main()
             for (char c : line) {
                 if (c != ' ') {
                     test[char_count] = c;
-                    cout << test[char_count] << endl;
-                    char_count++;
+                    cout << test[char_count] << " ";
                 }
             }
         }
