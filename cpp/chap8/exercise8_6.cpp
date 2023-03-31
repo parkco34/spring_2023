@@ -18,6 +18,7 @@
 #include <fstream>
 #include <cmath>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -27,6 +28,8 @@ int main()
     const int KIDS = 4;
     const int QUESTIONS = 30;
     char answers[QUESTIONS];
+    string ids[KIDS];
+    char test[QUESTIONS];
 
     ifstream infile("Ch8_Ex6Data.txt");
     // Check if file opens properly
@@ -48,11 +51,24 @@ int main()
             answers[line.length()] = '\0';
             counter++;
         }
+        // get Ids by storing in a array of strings
         else {
-            // get Ids
-            // SOmehow ....
-        }
+            int count = 0;
+//            cout << line.substr(0, line.find(' ')) << endl;
+            ids[count] = line.substr(0, line.find(' '));
+            count++;
 
+            /* Get student's answers, storing them in a character array, 
+             * skipping the spaces */
+            int char_count = 0;
+            for (char c : line) {
+                if (c != ' ') {
+                    test[char_count] = c;
+                    cout << test[char_count] << endl;
+                    char_count++;
+                }
+            }
+        }
     }
 
     return 0;

@@ -1,0 +1,62 @@
+The process of sending print jobs from the print queue to the printer is called :
+    - printing
+
+- You can clear a log file by redirecting nothing to it
+
+When a printer is disabled, the print queue accepts jobs into the 
+    print queue and holds them there until the printer is enabled again
+
+What is the term used to describe a user providing a user name and password to log in to a system?
+    - authentication
+
+Which command can you use to lock a user account?:
+    - usermod –L username 	
+
+Which command can be used to temporarily alter the primary group associated with a given user?:
+    - newgrp 	
+
+Which command can be used to send a print job to the default printer named Printer1? :
+    - lp –d Printer1 file
+    - lp file
+
+What is the name of the file that contains a listing of all users on the system and their home directories?:
+    - /etc/passwd
+
+UIDs and GIDs are unique to the system and, once used, can never be reused:
+    - False
+
+What is the name of the utility used to rotate log files?:
+     - logrotate
+
+You can lock a user account by changing the default login shell to an invalid shell in /etc/passwd:
+    - True
+
+When a printer is rejecting requests,
+     - the print queue does not accept jobs and sends a message to the user noting that the printer is unavailable
+
+When referring to the /etc/rsyslog.conf file, ____ specifies information from a certain area of the system, whereas ____ is the level of importance of that information:
+    - facility, priority
+
+Most log files on the system are found in which directory?:
+    - /var/log 	
+
+Which file contains default information such as UID and GID ranges and minimum password length to be used at user creation?:
+    - /etc/login.defs
+
+What command can you use to view journald log entries on a system that uses Systemd?:
+    -  journalctl 
+
+Which command would you use to unlock a user account?:
+    - passwd -u username
+
+Along with a listing of user accounts, the /etc/passwd file contains information on account expiry.:
+    - False
+
+You use lpstat and determine that a user named User1 has placed two large print jobs in the queue for Printer1 that have yet to start printing. They have print job IDs of Printer1-17 and Printer1-21, respectively. Which command would you use to remove these two jobs from the print queue?:
+    - cancel printer1-17 printer1-21
+
+Which command is used to delete a user account?:
+    - userdel username
+
+
+        
