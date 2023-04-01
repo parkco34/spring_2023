@@ -54,19 +54,27 @@ int main()
         // get Ids by storing in a array of strings
         else {
             int count = 0;
+            int i;
+            double score = 0;
 //            cout << line.substr(0, line.find(' ')) << endl;
             ids[count] = line.substr(0, line.find(' '));
             count++;
 
             /* Get student's answers, storing them in a character array, 
              * skipping the spaces */
-            int char_count = 0;
-            for (char c : line) {
-                if (c != ' ') {
-                    test[char_count] = c;
-                    cout << test[char_count] << " ";
-                }
+            for (int j = i+1; j < line.length(); j++, k++) {
+                cout << line[j];
+                if (line[j] == ' ') // Skip space
+                    continue;
+                else if (line[j] == answers[k]) 
+                    score += 2;
+                else if (line[j] == answers[k])
+                    score -= 1;
             }
+            cout << " ";
+            int points = (int) score;
+            cout << points << " ";
+            double percent = (score / 40.0) * 100.0;
         }
     }
 
