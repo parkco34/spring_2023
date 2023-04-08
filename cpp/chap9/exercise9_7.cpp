@@ -33,7 +33,7 @@ struct player {
     int rushingYards;
 };
 
-void lowerCase(string& word);
+string lowerCase(string word);
 void inputData(ifstream& infile);
 void outputData(ifstream& outfile);
 void updatePlayers(player players[]);
@@ -60,6 +60,7 @@ string lowerCase(string word)
     for (int i=0; i < word.size(); i++) {
         word[i] = tolower(word[i]);
     }
+    return word;
 }
 
 void inputData(ifstream& infile)
