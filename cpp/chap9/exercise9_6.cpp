@@ -43,6 +43,7 @@ int main()
     openFile(infile);
     letters myLetters[2 * ALPHABET];
     count(infile, myLetters);
+    printResult(myLetters);
 }
 
 // Opens file for reading
@@ -79,13 +80,21 @@ void count(ifstream& infile, letters myLetters[])
     }
 }
 
+//Prints the number of capital letters and small letters, as well as the percentage of
+//  capital letters for every letter A-Z and the percentage of small letters for every letter a-z
 void printResult(letters myLetters[])
 {
-    cout << setw(10) << "Letter: " << setw(10) << "Uppercase: " << setw(10) << 
-        "Lowercase: " << setw(15) << "Uppercase %" << setw(15) << "Lowercase %" << endl;
-
-    for (int i=0; i < ALPHABET; i++) {
-        // Why is this difficult for me?
+    cout << setw(10) << "Letter" << setw(10) << "Uppercase" << setw(10) << "Lowercase" << setw(15) << "Uppercase %" << setw(15) << "Lowercase %" << endl;
+    for(int i = 0; i < (2  * ALPHABET); i++) {
+        int total = myLetters[i].upperCount + myLetters[i].lowerCount;  // Sample Space
+        if(total > 0) {
+//            cout << "Upper: " << myLetters[i].upperCount << endl;
+//            cout << "Lower: " << myLetters[i].lowerCount << endl;
+            // Percentages
+            double upperPct = 100.0 * myLetters[i].upperCount / total;
+            double lowerPct = 100.0 * myLetters[i].lowerCount / total;
+            cout << setw(10) << myLetters[i].upperCount << setw(10) << myLetters[i].lowerCount << setw(15) << fixed << setprecision(2) << upperPct << "%" << setw(15) << fixed << setprecision(2) << lowerPct << "%" << endl;
+        }
     }
 }
 
