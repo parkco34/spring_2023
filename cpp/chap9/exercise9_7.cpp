@@ -45,6 +45,7 @@ int getUpdate(int selection)
     int update;
     // Determines whether user needs to input data to be updated
     if (selection != 1) {
+        cout << "Enter a value for which you intend to update: " << endl;
         cin >> update;
     }
     return update;
@@ -98,9 +99,9 @@ void inputData(ifstream& infile)
 //    up-date the data of a player.
 void updatePlayers(player players[])
 {
-    string name;
-    int selection, touchdowns, catches, passingYards, 
+    int touchdowns, catches, passingYards, 
         receivingYards, rushingYards;
+    int selection = 0;
 
     while(selection != 99) {
         cout << "Select one of the following options:" << endl;
@@ -178,6 +179,9 @@ void updateData(player players[], int data)
 
     for (int i=0; i < NUM_OF_PLAYERS; i++) {
         // If user entered one of the listed player names, 
+        /*
+         * I NEED TO DEAL WITH THIS SHIT !!!!!
+         * */
         if (name == lowerCase(players[i].name)) {
             // Type of metric to update
             switch(data) {

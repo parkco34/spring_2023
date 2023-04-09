@@ -26,6 +26,7 @@ public class DistanceConversionCP {
             System.out.println("6. Centimeters to Inches");
             System.out.println("7. Quit");
 
+            
             choice = getGoodInt();
 
             switch (choice) {
@@ -84,58 +85,57 @@ public class DistanceConversionCP {
     public static int getGoodInt() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a choice via positive integer: ");
-        int good = input.nextInt();
         boolean valid = false;
+        int good = 0;
 
-        // Iterate thru until user provides valid input
-        while(!valid) {
+        // Iterate through until user provides valid input
+        while (!valid) {
             try {
-                System.out.println("You entered " + good);
-                if (good < 0) {
+                good = input.nextInt();
+
+                if (good <= 0) {
                     valid = false;
-                    throw new Exception("Negative values are not valid");
-                }
-                else {
+                    throw new Exception("Invalid input. Please enter a positive integer.");
+                } else {
                     valid = true;
                 }
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Oops! You entered an invalid input");
-                input.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a positive integer.");
+                input.nextLine();
                 valid = false;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
                 valid = false;
             }
         }
+
         return good;
     }
 
     public static double getGoodDouble() {
         Scanner input = new Scanner(System.in);
-        double good = input.nextDouble();
+        double good = 0;
         boolean valid = false;
 
-        // Iterate thru until user provides valid input
-        while(!valid) {
+        // Iterate until user provides valid input
+        while (!valid) {
             try {
-                System.out.println("You entered " + good);
+                System.out.println("\nEnter a double value: ");
+                String userInput = input.next();
+
+                // Try parsing the input as a double
+                good = Double.parseDouble(userInput);
+
+                // Check if the value is negative
                 if (good < 0) {
-                    valid = false;
                     throw new Exception("Negative values are not valid");
                 }
-                else {
-                    valid = true;
-                }
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Oops! You entered an invalid input");
-                valid = false;
-            }
-            catch (Exception e) {
+
+                valid = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Oops! You entered an invalid input. Please enter a valid double value.");
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
-                valid = false;
             }
         }
 
