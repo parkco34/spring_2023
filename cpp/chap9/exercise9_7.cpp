@@ -36,6 +36,7 @@ struct player {
 string lowerCase(string word);
 void inputData(ifstream& infile);
 void outputData(ifstream& outfile);
+void getPlayerData(player players[], string playerName);
 void updatePlayers(player players[]);
 void updateData(player players[], int data);
 
@@ -47,6 +48,7 @@ int getUpdate(int selection)
     if (selection != 1) {
         cout << "Enter a value for which you intend to update: " << endl;
         cin >> update;
+        cin.ignore();
     }
     return update;
 }
@@ -58,6 +60,7 @@ int main()
     // Check if file is opened properly
     if (!infile) {
         cerr << "Unable to open file" << endl;
+        return 1;
     }
 
     // Read file
@@ -102,6 +105,7 @@ void updatePlayers(player players[])
     int touchdowns, catches, passingYards, 
         receivingYards, rushingYards;
     int selection = 0;
+    string name;
 
     while(selection != 99) {
         cout << "Select one of the following options:" << endl;
@@ -114,17 +118,16 @@ void updatePlayers(player players[])
         cout << "7: To update a player's rushing yards" << endl;
         cout << "99: To quit the program" << endl;
 
-        // Get user input
-        cin >> selection;
-
         switch(selection) {
             case 1:
+                cout << "Selection: " << selection << endl;
+                cout << "Enter name of player; " << endl;
+                getline(cin, name);
                 updateData(players, selection);
                 break;
 
             case 2:
                 // Outputs player data
-                
                 cout << "+++++++++++++++++++++++++++" << endl;
                 for (int i=0; i < NUM_OF_PLAYERS; i++) {
                     cout << "+++++++++++++++++++++++++++" << endl;
@@ -165,55 +168,22 @@ void updatePlayers(player players[])
                 break;
         }
     }
-        
 }
 
 /* 
 Takes an array, name of player for which to make update and 
 the type of data to update
  * */
-void updateData(player players[], int data)
+void updateData(player players[], int data, string name)
 {
-    string name;
     int update; 
-
     for (int i=0; i < NUM_OF_PLAYERS; i++) {
         // If user entered one of the listed player names, 
-        /*
-         * I NEED TO DEAL WITH THIS SHIT !!!!!
-         * */
-        if (name == lowerCase(players[i].name)) {
+        if (name == players[i].name) {
             // Type of metric to update
             switch(data) {
-                case 7:
-                    cout << "Update Rushing Yards: " <<  endl;
-                    players[i].rushingYards = stoi(update);
-                    break;
-
-                case 5:
-                    cout << "Update Passing Yards: " << endl;
-                    players[i].passingYards = stoi(update);
-                    break;
-
-                case 6:
-                    cout << "Update Receiving Yards: " << endl;
-                    players[i].receivingYards = stoi(update);
-                    break;
-
-                case 4:
-                    cout << "Update catches: " << endl;
-                    players[i].catches = stoi(update);
-                    break;
-
-                case 3:
-                    cout << "Update a player's touch downs: " << endl;
-                    players[i].touchdowns = stoi(update);
-                    break;
-
                 case 1:
-                    cout << "Enter the name of the player: " << endl;
                     cout << "\nPlayers: " << endl;
-
                     // Show user the names of the players
                     cout << "+++++++++++++++++++++++++++" << endl;
                     for (int i=0; i < NUM_OF_PLAYERS; i++) {
@@ -222,27 +192,62 @@ void updateData(player players[], int data)
                     cout << "+++++++++++++++++++++++++++" << endl;
                     
                     // Get user input for player name for which to display to data
-                    cin >> name;
-                    name = lowerCase(name);
+                    cout << "Enter name of player: " << endl;
+                    getline(cin, name);
+                    // Capitalize first letter of name
+                    name[0] = toupper(name[0]);
 
+                    // Lowercase the rest of the letters
                     for (int i=0; i < NUM_OF_PLAYERS; i++) {
-                        if (name == lowerCase(players[i].name)) {
-                            cout << "______________________________________________________" << endl;
-                            cout << "Player data " << endl;
-                            cout << "Name: " << players[i].name << endl;
-                            cout << "Position: " << players[i].position << endl;
-                            cout << "Touchdowns: " << players[i].touchdowns << endl;
-                            cout << "Catches: " << players[i].catches << endl;
-                            cout << "Passing Yards: " << players[i].passingYards << endl;
-                            cout << "Receiving Yards: " << players[i].receivingYards << endl;
-                            cout << "Rushing Yards: " << players[i].rushingYards << endl;
-                            cout << "______________________________________________________" << endl;
-                        }
+                        name[i] = tolower(name[i]);
                     }
+                    cout << "Name: " << name << endl;        
+                    getPlayerData(players, name); 
+                    break;
 
+                case 7:
+                    cout << "Update Rushing Yards: " <<  endl;
+                    players[i].rushingYards = update;
+                    break;
+
+                case 5:
+                    cout << "Update Passing Yards: " << endl;
+                    players[i].passingYards = update;
+                    break;
+
+                case 6:
+                    cout << "Update Receiving Yards: " << endl;
+                    players[i].receivingYards = update;
+                    break;
+
+                case 4:
+                    cout << "Update catches: " << endl;
+                    players[i].catches = update;
+                    break;
+
+                case 3:
+                    cout << "Update a player's touch downs: " << endl;
+                    players[i].touchdowns = update;
+                    break;
             }
         }
     }
 }
 
-
+void getPlayerData(player players[], string playerName)
+{
+    for (int i=0; i < NUM_OF_PLAYERS; i++) {
+        if (playerName == players[i].name) {
+            cout << "______________________________________________________" << endl;
+            cout << "Player data " << endl;
+            cout << "Name: " << players[i].name << endl;
+            cout << "Position: " << players[i].position << endl;
+            cout << "Touchdowns: " << players[i].touchdowns << endl;
+            cout << "Catches: " << players[i].catches << endl;
+            cout << "Passing Yards: " << players[i].passingYards << endl;
+            cout << "Receiving Yards: " << players[i].receivingYards << endl;
+            cout << "Rushing Yards: " << players[i].rushingYards << endl;
+            cout << "______________________________________________________" << endl;
+        }
+    }
+}

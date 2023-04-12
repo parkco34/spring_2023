@@ -1,23 +1,3 @@
-//Write a program whose main function is merely a collection of variable declarations and function calls. 
-// THIS PROGRAM READS A TEXT AND OUTPUTS THE LETTERS, TOGETHER WITH THEIR COUNTS, as explained below in the function printResult. 
-//(There can be NO GLOBAL VARIABLES! 
-// All information must be passed in and out of the functions. USE A STRUCTURE to store the information.) 
-//
-//Your program must consist of at least the following FUNCTIONS:
-//
-//    - openFile: Opens the input and output files. 
-//        You must pass the file streams as parameters (by reference, of course). 
-//        If the file does not exist, the program should print an appropriate message ("The input file does not exist.") and exit.
-//    
-//    - count: Counts every occurrence of capital letters A-Z and small letters a-z in the text 
-//        file opened in the function openFile. 
-//        This information must go into an ARRAY OF STRUCTURES. 
-//        The array must be passed as a parameter, and the file identifier must also be passed as a parameter.
-//
-//    - printResult: Prints the number of capital letters and small letters, as well as the percentage of 
-//        capital letters for every letter A-Z and the percentage of small letters for every letter a-z. 
-//        The percentages should look like this: "25%".
-//        This information must come from an ARRAY OF STRUCTURES, and this array must be passed as a parameter.
 #include <iostream>
 #include <fstream>
 #include <cstring>
@@ -33,16 +13,11 @@ struct LetterInfo {
 
 void openFile(ifstream& inFile, ofstream& outFile) {
     string inFileName, outFileName;
-    cout << "Enter your file name: " << endl;
-    cin >> inFileName;
-    if (inFileName.length() < 3) {
-        inFileName = "Ch9_Ex6Data.txt";
-    }
+    inFileName = "Ch9_Ex6Data.txt";
     outFileName = "Ch9_Ex6Data.dat";
-
     inFile.open(inFileName);
     if (!inFile) {
-        cerr << "The input file does not exist \"" << inFileName << "\"" << endl;
+        cerr << "Error: could not open input file \"" << inFileName << "\"" << endl;
         exit(1);
     }
     outFile.open(outFileName);
@@ -57,7 +32,6 @@ void openFile(ifstream& inFile, ofstream& outFile) {
  */
 void count(ifstream& inFile, LetterInfo letters[]) {
     char c;
-
     while (inFile.get(c)) {
         if (isalpha(c)) {
             int index = isupper(c) ? c - 'A' : c - 'a' + 26;
@@ -79,7 +53,6 @@ void printResult(ofstream& outFile, LetterInfo letters[]) {
     }
 
     outFile << fixed << setprecision(2);
-    cout << fixed << setprecision(2);
     outFile << "Letter  Count   Percent\n";
 
     for (int i = 0; i < 26; i++) {
@@ -87,10 +60,8 @@ void printResult(ofstream& outFile, LetterInfo letters[]) {
         double percentage2 = (double)letters[i+26].count / (totalLowers + totalCaps) * 100;
 //        double capPercent = (double)letters[i].count / totalCaps * 100;
 //        double lowerPercent = (double)letters[i + 26].count / totalLowers * 100;
-        outFile << (char)(i + 'A') << "\t" << letters[i].count << "\t" << percentage1 << "%\n";
-        outFile << (char)(i + 'a') << "\t" << letters[i + 26].count << "\t" << percentage2 << "%\n";
-        cout << (char)(i + 'A') << "\t" << letters[i].count << "\t" << percentage1 << "%\n";
-        cout << (char)(i + 'a') << "\t" << letters[i + 26].count << "\t" << percentage2 << "%\n";
+        outFile << (char)(i + 'A') << " " << letters[i].count << " " << percentage1 << "%\n";
+        outFile << (char)(i + 'a') << " " << letters[i + 26].count << " " << percentage2 << "%\n";
     }
 }
 

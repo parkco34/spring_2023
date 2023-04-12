@@ -60,22 +60,32 @@ int showMenu(menuItemType menuList[], const int SIZE, double& price)
     }
 
     while(makeSelection && numOfSelections < SIZE) {
+
         cout << "You can make up to " << SIZE << " single order selections " << endl;
         cout << "Do you want to make selection Y/y (Yes), N/n (No): " << endl;
         cin >> selection;
 
-        if (tolower(selection) == 'y') {
-            int choice; // Choice of item number
-        }
-        else
+        if (tolower(selection) == 'n') {
+            cout << "TOODLES!" << endl;
             break;
+        }
+
+        while (tolower(selection) != 'y' && tolower(selection) != 'n') {
+            cout << "Lo siento ... Invalid input. " << endl;
+            cin >> selection;
+            
+
+            if (tolower(selection) == 'n') {
+                cout << "TOODLES!" << endl;
+                exit(1);
+            }
+        }
 
         cout << "Enter item number: (Press any letter-key to quit)" << endl;
         cin >> choice;
 
         // Sum selection prices
-        cout << "Your choice: (1-8)" << setw(7) << " " << choice << endl;
-        cout << "Price: " << price << endl;
+//        cout << "Your choice: (1-8)" << setw(7) << " " << choice << endl;
         // User selects menu options
         switch(choice) {
             case 1:
@@ -114,6 +124,8 @@ int showMenu(menuItemType menuList[], const int SIZE, double& price)
                 cout << "Goodbye " <<  endl;
                 makeSelection = false;  // Quits
         }
+
+//        cout << "Price: " << price << endl;
         numOfSelections++;
     }
 
