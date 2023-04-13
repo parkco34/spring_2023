@@ -1,0 +1,24 @@
+1) Which of the following can be used at the command line to download a file using the HTTP protocol? (Choose two.):
+    - wget and curl
+
+2) Which of the following file extensions are used by the Debian Package Manager?:
+    - .deb
+
+3) Which of the following is not a valid compression file extension for the Linux operating system?:
+    - .vz
+
+4) Which of the following commands will list missing libraries as not found if a necessary library is not installed?:
+    - ldd
+
+5) Which of the following is the full path and file name where the Debian Package Manager repositories can be configured?:
+    -  /etc/apt/sources.list
+
+6) Which of the following package managers are used to install RPM packages on the SUSE or openSUSE distributions by default?:
+    - Zypper
+
+7) Which of the following RPM options will update a software package to the newest version, or install the package if it does not already exist on a system?:
+    -U
+
+8) Which of the following is a tool that can be used to search Internet software repositories for RPM packages that map to your system's architecture, and automatically install or upgrade those packages on your system?:
+    - YUM
+

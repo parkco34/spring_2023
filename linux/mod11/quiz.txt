@@ -1,0 +1,59 @@
+1) Most source code is typically available on the Internet in tarball format or as a git repository. True or False?
+    - True
+
+2) Which dump level indicates a full backup?
+    - 0
+
+3) Which filename extension indicates a tarball?:
+    - tar.xz
+
+4) Files that have been compressed using the xz utility typically have the ______ extension.:
+    - xz
+
+5) The bzip2 and gzip utilities use similar compression algorithms. True or False?:
+    - False
+
+6) When compiling source code into a binary program, which command does the compiling using the GNU C Compiler?:
+    - make
+
+7) The -9 option to the gzip utility results in a higher compression ratio. True or False?:
+    - True
+
+8) You have created a full backup and four incremental backups. In which order must you restore these backups?:
+    - 0,1,2,3,4
+
+9) Which of the following commands extracts an archive?:
+    - cpio –vicdu –I /dev/fd0
+
+10) The Debian Package Manager (DPM) is the default package manager used by Fedora 28. True or False?:
+    - False
+
+11) Which of the following commands can be used to list the files contained within an installed RPM package?:
+    - rpm -ql packagename
+
+12) Which of the following commands can be used to remove the test DPM package, including any test configuration files?:
+    - apt purge test
+
+13) To install a new program from RPM software repositories on the Internet, you can use the dnf update programname command. True or False:
+    - False
+
+14) Which command can be used to create an image backup of a partition?:
+    - dd
+
+15) Which of the following commands should be run following the installation of a shared library to update the /etc/ld.so.conf and /etc/ld.so.cache files?:
+    - ldconfig
+
+16) Which option to the dpkg command can be used to list the files that comprise a package?:
+    -L
+
+17) Which option to the rpm command can be used to remove a package from the system?:
+    - e
+
+18) Which of the following commands creates an archive?:
+    - tar –zcvf /dev/st0 *
+
+19) When compiling source code into a binary program, which command performs a system check and creates the Makefile?:
+    - /configure
+
+20) Which of the following commands can be used to search for packages that contain the word oobla on RPM software repositories?:
+    - yum search oobla
