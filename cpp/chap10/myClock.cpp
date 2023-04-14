@@ -81,5 +81,11 @@ bool Clock::equalTime(const Clock& otherClock) const
 
 int main()
 {
-    
+    Clock myClock, otherClock;
+    myClock.setTime(2, 48, 52);
+    cout << myClock.equalTime(otherClock) << endl;
+
+    return 0;
 }
+
+
