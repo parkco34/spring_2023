@@ -38,7 +38,7 @@ void openFile(ifstream& inFile, ofstream& outFile) {
     if (inFileName.length() < 3) {
         inFileName = "Ch9_Ex6Data.txt";
     }
-    outFileName = "Ch9_Ex6Data.dat";
+    outFileName = "outfile.txt";
 
     inFile.open(inFileName);
     if (!inFile) {
