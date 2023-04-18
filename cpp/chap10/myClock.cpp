@@ -74,6 +74,7 @@ void Clock::incrementSeconds()
 
 bool Clock::equalTime(const Clock& otherClock) const
 {
+    // hr, min, and sec are PRIVATE
     return (hr == otherClock.hr
             && min == otherClock.min
             && sec == otherClock.sec);
@@ -83,8 +84,14 @@ int main()
 {
     Clock myClock, otherClock;
     myClock.setTime(2, 48, 52);
-    cout << myClock.equalTime(otherClock) << endl;
 
+    Clock yourClock;
+    myClock = yourClock;
+
+    if (myClock.equalTime(yourClock)) {
+
+    }
+    
     return 0;
 }
 

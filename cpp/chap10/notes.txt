@@ -1,0 +1,6 @@
+How to link object files together:
+
+        g++ -c IMPLEMENTATION_FILE.cpp -o imp.o
+        g++ -c MAIN.CPP -o main.o
+        g++ main.o imp.o -o main
+
