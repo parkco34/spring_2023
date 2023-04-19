@@ -1,5 +1,4 @@
 //personType.
-  
 #ifndef H_personType
 #define H_personType 
   
