@@ -1,5 +1,4 @@
 //Implementation File for the class clockType
- 
 #include <iostream>
 #include "clockType.h"
   
@@ -26,9 +25,9 @@ void clockType::setTime(int hours, int minutes, int seconds)
 void clockType::getTime(int& hours, int& minutes, 
                         int& seconds) const
 {
-    hours = hr;
-    minutes = min;
-    seconds = sec;
+    hr = hours;
+    min = minutes;
+    sec = seconds;
 }
 
 void clockType::incrementHours()

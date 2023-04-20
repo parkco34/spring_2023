@@ -1,4 +1,3 @@
-
 //clockType.h, the specification file for the class clockType
 #ifndef H_ClockType
 #define H_ClockType
