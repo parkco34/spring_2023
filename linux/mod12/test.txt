@@ -1,0 +1,26 @@
+1) Which of the following commands will send 4 ICMP echo requests to a remote host named server1 to determine the round trip time it takes a packet to travel?:
+    - ping -c 4 server1
+
+2) You run the command hostname server1 and issue the reboot command. You notice that the host name has reverted back to what it was before the reboot. Which of the following commands should you have used to change the host name instead?:
+    - hostnamectl set-hostname server1
+
+3) Which of the following can be used to graphically remotely administer a Linux machine?:
+    - VNC
+
+4) The output of the ifconfig shows a HWaddr expressed in hexadecimal. How many bits is the hardware address shown made up of?:
+    - 48
+
+5) Upon running the ifconfig command, the IP address is listed along with the subnet mask in dotted decimal notation listed as 255.255.255.224. You have installed a remote access software that has an address field that requires the address to be configured in CIDR notation. Which of the following is the equivalent CIDR notation for the subnet mask listed?:
+    - /27
+
+6) Which of the following files does the hostnamectl command modify to set the hostname on a machine?:
+    - /etc/hostname
+
+7) Which of the following is a valid APIPA address?:
+    - 169.254.38.101
+
+8) Which of the following are valid statements in the /etc/resolv.conf file? (Choose two.):
+    - domain comptia.org
+    - nameserver 10.1.1.4
+
+

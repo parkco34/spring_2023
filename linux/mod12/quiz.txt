@@ -1,0 +1,61 @@
+1) The NetworkManager or Systemd-networkd components must be installed on a Linux system in order to configure an IP address on a network interface. True or False?:
+    - False
+
+2) Which Windows program is often used to connect to a Linux server via SSH?:
+    - Putty
+
+3) Standalone daemons are started on demand using xinetd. True or False?
+    - False
+
+4) Which file stores the IP addresses of the DNS servers used to resolve host names if no DNS servers are specified within the network configuration file for the network interface?:
+    - /etc/resolv.conf 	
+
+5) To test DNS configuration by resolving a host name to an IP address, which command or commands can you use?:
+    - nslookup hostname,  dig hostname, host hostname
+
+6) Which file holds the methods to be used and the order in which they will be applied for host name resolution?:
+    - route, ip
+
+7) What are two means available to resolve a host name to the appropriate IP address? (Choose two answers.):
+    - /etc/nsswitch.conf
+
+8) What are two means available to resolve a host name to the appropriate IP address? (Choose two answers.):
+    - DNS, /etc/hosts
+
+9) You want to generate SSH keys for your user account and copy them to a remote computer to simplify future SSH authentication. What two commands can you use to perform these actions? (Choose two answers.):
+    - True
+
+10) You want to generate SSH keys for your user account and copy them to a remote computer to simplify future SSH authentication. What two commands can you use to perform these actions? (Choose two answers.):
+    - ssh-copy-id, ssh-keygen
+
+11) Which of the following can be used to provide graphical remote administration? (Choose all that apply.):
+    - ssh-X,VNC
+
+12) The daemons associated with network services listen for network traffic associated with a particular _____.:
+    - port
+
+13) The IP address of 127.0.0.1 is also referred to as the _____:
+    - loopback address
+
+14) The line that configures the host name for the computer at boot time can be found in /etc/hostname. True or False?:
+    - True
+
+15) Which commands can be used to display TCP/IP connections on your Linux system? (Choose all that apply.):
+    - netstat -t, ss -t
+
+16) Which of the following port numbers is associated with SSH?:
+    - 22
+
+17) Which file would you modify to permanently change the IP address of a network interface on a Fedora 28 system?:
+    - /etc/sysconfig/network-scripts/ifcfg-enp8s0
+
+18) Before a computer can use a router, what configuration information must it be provided?:
+    - default gateway
+
+19) Which of the following are stand-alone daemons?:    
+    - Apache,DNS
+
+20) Which of the following utilities can be used to check TCP/IP configuration and test network connectivity?:
+    - ifconfig, iwconfig, ping, nmcli
+
+
