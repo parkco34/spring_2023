@@ -18,13 +18,13 @@ extClockType::extClockType()
     timeZone = "UTC";
 }
 
-extClockType::extClockType(int hours, int minutes, int seconds)
+extClockType::extClockType(int hours, int minutes, int seconds, string zone)
 {
     setTime(hours, minutes, seconds);
     timeZone = zone;
 }
 
-bool extClockType::equalTime(const extClockType& otherClock)
+bool extClockType::equalTime(const extClockType& otherClock) const
 {
     if (hr == otherClock.hr 
             && min == otherClock.min

@@ -4,7 +4,8 @@ using namespace std;
 
 class clockType
 {
-    int hr, min, sec;
+    protected:
+        int hr, min, sec;
 
     public:
         // Accessor methods

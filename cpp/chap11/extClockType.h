@@ -15,6 +15,7 @@ class extClockType: public clockType
         extClockType();
         extClockType(int, int, int, string);
         void printTimeZone() const;
+        bool equalTime(const extClockType& otherClock) const;
 };
 
 
