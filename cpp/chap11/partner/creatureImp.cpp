@@ -56,10 +56,10 @@ int Creature::getHitpoints()
 
 string Creature::getSpecies() const
 {
-    int type;
-    cout << "Make your selection: " << "\n0: Human\n1: Cyberdemon"
-        << "\n2: Balrog\n3: Elf" << endl;
-    cin type;
+//    int type;
+//    cout << "Make your selection: " << "\n0: Human\n1: Cyberdemon"
+//        << "\n2: Balrog\n3: Elf" << endl;
+//    cin type;
     switch(type) {
         case 0: return "Human";
         case 1: return "Cyberdemon";
