@@ -56,6 +56,10 @@ int Creature::getHitpoints()
 
 string Creature::getSpecies() const
 {
+    int type;
+    cout << "Make your selection: " << "\n0: Human\n1: Cyberdemon"
+        << "\n2: Balrog\n3: Elf" << endl;
+    cin type;
     switch(type) {
         case 0: return "Human";
         case 1: return "Cyberdemon";
@@ -76,7 +80,7 @@ int Creature::getDamage()
 
     if ((type == 1) || (type == 2)) {
         damage += 50;
-        cout << "DEmonic attach inflicts 50 " 
+        cout << "Demonic attach inflicts 50 " 
             << " additional damage points!" << endl;
     }
 
