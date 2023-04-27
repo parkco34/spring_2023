@@ -1,46 +1,20 @@
-#ifndef rectangleType_H
-#define rectangleType_H
- 
+#include <string>
+using namespace std;
+
 class rectangleType
-{ 
-public: 
-    void setDimension(double l, double w);
-      //Function to set the length and width of the rectangle.
-      //Postcondition: length = l; width = w;
+{
+    double length, width;
 
-    double getLength() const;
-      //Function to return the length of the rectangle.
-      //Postcondition: The value of length is returned. 
-
-    double getWidth() const;
-      //Function to return the width of the rectangle.
-      //Postcondition: The value of width is returned. 
-
-    double area() const;
-      //Function to return the area of the rectangle.
-      //Postcondition: The area of the rectangle is 
-      //               calculated and returned.
-
-    double perimeter() const;
-      //Function to return the perimeter of the rectangle.
-      //Postcondition: The perimeter of the rectangle is 
-      //               calculated and returned.
-
-    void print() const;
-      //Function to output the length and width of 
-      //the rectangle.
-
-    rectangleType();
-      //Default constructor
-      //Postcondition: length = 0; width = 0;
-
-    rectangleType(double l, double w);
-      //Constructor with parameters
-      //Postcondition: length = l; width = w;
-
-private:
-    double length;
-    double width;
+    public:
+        void setDimension(double l, double w);
+        // Sets length and width of of rectangle
+        // Post condition: length = l, width = w
+        // Read-only member functions:
+        double getLength() const;
+        double getWidth() const;
+        double getArea() const;
+        double perimeter() const;
+        void print() const;
+        rectangleType(); // Default constructor
+        rectangleType(double l, double w);
 };
-
-#endif

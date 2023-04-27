@@ -15,62 +15,64 @@ int main()
 {
     srand(time(0));
 
-    human h1;
-    elf e1;
-    cyberdemon c1;
-    barlog b1;
-    human h(20, 30);
-    elf e(40, 50);
-    cyberdemon c(60, 70);
-    barlog b(80, 90);
-    cout << "default human strength/hitpoints: " << h1.getStrength()
-         << "/" << h1.getHitpoints() << endl;
-    cout << "default elf strength/hitpoints: " << e1.getStrength() << "/" << e1.getHitpoints() << endl;
+    human human1;
+    elf elf1;
+    cyberdemon cyberdemon1;
+    barlog barlog1;
+    human hummus(20, 30);
+    elf elfz(40, 50);
+    cyberdemon cyber(60, 70);
+    barlog barly(80, 90);
+    cout << "default human strength/hitpoints: " << human1.getStrength()
+         << "/" << human1.getHitpoints() << endl;
+    cout << "default elf strength/hitpoints: " << elf1.getStrength() << "/" << elf1.getHitpoints() << endl;
     cout << "default cyberdemon strength/hitpoints: " <<
-        c1.getStrength() << "/" << c1.getHitpoints() << endl;
-    cout << "default barlog strength/hitpoints: " << b1.getStrength()
-         << "/" << b1.getHitpoints() << endl;
+        cyberdemon1.getStrength() << "/" << cyberdemon1.getHitpoints() << endl;
+    cout << "default barlog strength/hitpoints: " << barlog1.getStrength()
+         << "/" << barlog1.getHitpoints() << endl;
     cout << "non-default human strength/hitpoints: " <<
-        h.getStrength() << "/" << h.getHitpoints() << endl;
-    cout << "non-default elf strength/hitpoints: " << e.getStrength()
-         << "/" << e.getHitpoints() << endl;
+        hummus.getStrength() << "/" << hummus.getHitpoints() << endl;
+    cout << "non-default elf strength/hitpoints: " << elfz.getStrength()
+         << "/" << elfz.getHitpoints() << endl;
     cout << "non-default cyberdemon strength/hitpoints: " <<
-        c.getStrength() << "/" << c.getHitpoints() << endl;
+        cyber.getStrength() << "/" << cyber.getHitpoints() << endl;
     cout << "non-default barlog strength/hitpoints: " <<
-        b.getStrength() << "/" << b.getHitpoints() << endl;
+        barly.getStrength() << "/" << barly.getHitpoints() << endl;
     cout << endl << endl;
 
-    cout << "Examples of " << h.getSpecies() << " damage: " << endl;
+    cout << "Examples of " << hummus.getSpecies() << " damage: " << endl;
     for (int i = 0; i < 10; i++)
     {
-        int damage = h.getDamage();
+        int damage = hummus.getDamage();
         cout << " Total damage = " << damage << endl;
         cout << endl;
     }
     cout << endl;
-    cout << "Examples of " << e.getSpecies() << " damage: " << endl;
+    cout << "Examples of " << elfz.getSpecies() << " damage: " << endl;
     for (int i = 0; i < 10; i++)
     {
-        int damage = e.getDamage();
+        int damage = elfz.getDamage();
         cout << " Total damage = " << damage << endl;
         cout << endl;
     }
     cout << endl;
-    cout << "Examples of " << c.getSpecies() << " damage: " << endl;
+    cout << "Examples of " << cyber.getSpecies() << " damage: " << endl;
     for (int i = 0; i < 10; i++)
     {
-        int damage = c.getDamage();
+        int damage = cyber.getDamage();
         cout << " Total damage = " << damage << endl;
         cout << endl;
     }
     cout << endl;
-    cout << "Examples of " << b.getSpecies() << " damage: " << endl;
+    cout << "Examples of " << barly.getSpecies() << " damage: " << endl;
     for (int i = 0; i < 10; i++)
     {
-        int damage = b.getDamage();
+        int damage = barly.getDamage();
         cout << " Total damage = " << damage << endl;
         cout << endl;
     }
     cout << endl;
+
+    
 }
 
