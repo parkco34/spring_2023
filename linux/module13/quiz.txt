@@ -1,0 +1,65 @@
+1) PaaS cloud providers host sandboxed Web apps using containers for scalability. True or False?:
+    - true
+
+2) Which file stores the Apache configuration in Fedora 28?:
+    - /etc/httpd/conf/httpd.conf
+
+3) Which DNS resource record is an alias to other records?:
+    - CNAME
+
+4) You can purchase object storage from a cloud provider to provide persistent filesystem-based storage. True or False?:
+    - False;
+
+5) Which command can be used to connect to check the /etc/samba/smb.conf file for syntax errors?:
+    - testparm
+
+6) You have modified the /etc/aliases file to include a new email alias. However, when you send email to the alias, it cannot be delivered. What should you do?:
+    - newaliases
+
+7) Which command within the command-line FTP utility can be used to change the current directory on the local computer?:
+    - lcd
+
+8) Which command can be used to list containers that are currently running on the operating system only?:
+    - docker ps
+
+9) Which of the following must you perform to share a directory using NFS? (Choose all that apply.):
+    - Edit the /etc/exports file
+    - Run the exportfs -a command.
+    - Start or restart the NFS daemons.
+
+10) DHCP clients send a DHCPREQUEST packet when they require a new IP configuration. True or False?:
+    - true
+
+11) Which command can be used to connect to a remote Windows share called data on the server called fileserver?:
+    - smbclient //fileserver/data
+
+12) The lines within the Apache configuration file that modify the functionality of the Apache are called directives. True or False?
+    - true
+
+13) Which of the following can be used to create a database within PostgreSQL? (Choose all that apply.):
+    - the CREATE DATABASE statement within the PostgreSQL utility.
+    - the createdb command
+
+14) Stratum 1 NTP servers do not obtain time information from other NTP servers. True or False?:
+    - false
+
+15) What must you do to transform your computer into a DNS server? (Choose all that apply.):
+    - Create zone files
+    - Create NIS maps.
+    - Run the name daemon (named)
+
+16) What directory are you placed in when you log in as the anonymous user to an Ubuntu Server 18 FTP server?:
+    - /srv/ftp
+
+17) Chronyd is an NTP daemon that offers a faster response time compared to the ntpd daemon. True or False?:
+    - true
+
+18) Which term is used to describe the process of pushing new versions of a Web app to a cloud provider for testing?:
+    - CD
+
+19) Which command can you use to synchronize ntpd with an NTP time source?:
+    - ntpq
+
+20) Mary is a system administrator in your organization. She has recently made changes to the DHCP configuration file, but the DHCP daemon does not seem to recognize the new changes. What should she do?:
+    - Restart the DHCP daemon
+

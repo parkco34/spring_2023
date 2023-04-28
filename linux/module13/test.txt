@@ -1,0 +1,24 @@
+1) Which of the following files contain the path and filename where DNS servers should be configured?:
+    - /etc/resolv.conf
+
+2) Which of the following is used on modern Linux distributions that reads YAML configuration files to add apps, modify existing configuration settings, or perform administrative tasks at boot time?:
+    - cloud-init
+
+3) Which type of CM software can connect to inventory members via SSH to perform configuration management activities?:
+    - agentless
+
+4) Which of the following types of CM software only requires that you specify the attributes that the inventory members must have within a configuration file, not the individual procedures that must be executed on them?:
+    - declarative configuration
+
+5) Which of the following is a valid SQL statement for adding a new row of data to a SQL database table?:
+    - INSERT INTO users (firstname, lastname) values ('George', 'Washington');
+
+6) Which of the following statements should be used at the end of a SQL statement where an aggregate function such as SUM or COUNT is used?:
+    - GROUP BY
+
+7) Which of the following commands can be used to display any email messages awaiting delivery alongside the reason that they were not delivered?:
+    - mailq
+
+8) Which of the following types of DNS records need to be configured to facilitate email delivery?
+    - MX
+

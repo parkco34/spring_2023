@@ -1,72 +1,98 @@
+/*
+ * The history teacher at your school needs help in grading a True/False test. The students’ IDs and test answers are stored in a file. The first entry in the file contains answers ...
+ * POINT SYSTEM:
+ * T = 2
+ * F = -1
+ * NULL = 0
+ * ----
+ * The exam has 20 questions, and the class has more than 150 students. 
+ * Each correct answer is awarded two points, 
+ * each wrong answer gets one point deducted, 
+ * and no answer gets zero points. 
+ * ----
+ * Write a program that processes the test data. The output should be the student’s ID, followed by the answers, followed by the test score, followed by the test grade:
+ *  -> Student's IDs
+ *  -> Answers
+ *  -> Test Scores
+ *  -> Test Grade
+ *  -> 
+ *
+ * Remember, a space indicates that a question has been skipped. If spaces are added for formating, there are too many or too few, it may affect the accuracy of your program.
+ --------------------------------------
+Example: 
+    ABC54102 T FTFTFTTTFTTFTTF TF
+    score = 2+0-1+1-1+1-1+1+1+1-1+1+1-1+1+1-1+0+1-1
+         = 
+ --------------------------------------
+ * */
 #include <iostream>
 #include <fstream>
 #include <string>
 
 using namespace std;
 
-int main() {
-    const int NUM_QUESTIONS = 20;
-    const int NUM_STUDENTS = 150;
-    char answers[NUM_QUESTIONS];
-    string studentData[NUM_STUDENTS];
-    int scores[NUM_STUDENTS];
-    char* studentAnswers[NUM_STUDENTS];
+int getScore(string str)
+    // Loops thru answers and returns score for the string of text
+{
+    int score = 0;
+    for (char c: str) {
+        if (c == 'T')
+            score += 2;
 
-    // Open the file and read in the answers
-    ifstream answerFile("answers.txt");
-    answerFile >> answers;
+        else if (c == 'F')
+            score -= 1;
 
-    // Read in the student data
-    ifstream studentFile("students.txt");
-    int i = 0;
-    while (!studentFile.eof()) {
-        getline(studentFile, studentData[i]);
-        i++;
+        else
+            continue;
+
     }
-    studentFile.close();
-
-    // Extract student answers and calculate scores
-    for (int j = 0; j < NUM_STUDENTS; j++) {
-        studentAnswers[j] = new char[NUM_QUESTIONS];
-        int score = 0;
-        for (int k = 0; k < NUM_QUESTIONS; k++) {
-            if (studentData[j*2+1][k] == ' ') {
-                studentAnswers[j][k] = ' ';
-            } else {
-                studentAnswers[j][k] = studentData[j*2+1][k];
-                if (studentAnswers[j][k] == answers[k]) {
-                    score += 2;
-                } else if (studentAnswers[j][k] != answers[k] && studentAnswers[j][k] != ' ') {
-                    score -= 1;
-                }
-            }
-        }
-        scores[j] = score;
-    }
-
-    // Output results
-    cout << "Processing Data\n";
-    cout << "Key: " << answers << endl;
-    for (int l = 0; l < NUM_STUDENTS; l++) {
-        cout << studentData[l*2] << " ";
-        for (int m = 0; m < NUM_QUESTIONS; m++) {
-            cout << studentAnswers[l][m];
-        }
-        cout << "  " << scores[l] << "   ";
-        if (scores[l] >= 90) {
-            cout << "A" << endl;
-        } else if (scores[l] >= 80) {
-            cout << "B" << endl;
-        } else if (scores[l] >= 70) {
-            cout << "C" << endl;
-        } else if (scores[l] >= 60) {
-            cout << "D" << endl;
-        } else {
-            cout << "F" << endl;
-        }
-        delete[] studentAnswers[l];
-    }
-
-    return 0;
+    return score;
 }
 
+int main()
+{
+    char ID_LETTERS = 8; // Number of letters in each student id
+    const int QUESTIONS = 20; // Number of questions
+    const int NUM_OF_STUDENTS = 4; // Number of student ids
+    string student_ids[NUM_OF_STUDENTS];
+    // Store answers to the 20 questions
+    char answers[21];
+    int scores[NUM_OF_STUDENTS];
+    string str;
+    int counter = 0; // For keeping track of which student we store scores for
+
+    // Read text file
+    ifstream infile("Ch12_Ex2Data.txt");
+    // check file opened properly 
+    if (!infile) {
+        cout << "File did not open properly" << endl;
+        return 1;
+    }
+
+    getline(infile, str);
+    for (int i=0; i < str.length(); i++)
+        answers[i] = str[i];
+  
+    while(getline(infile, str) && counter < NUM_OF_STUDENTS) {
+        // Get Student ids
+        char prevChar = '\0';
+        int index = str.find(' ');
+        student_ids[counter] = str.substr(0, index);
+    
+        //Gets student's scores
+        scores[counter] = getScore(str.substr(index+1, string::npos));
+        
+        // Next!
+        counter++;
+    }
+
+    // Output every element in the array
+    for (int i=0; i<5; i++) {
+        cout << "Student IDs: " << endl;
+        cout << student_ids[i] << endl;
+        cout << "Student's Scores:" << endl;
+        cout << scores[i] << endl;
+    }
+    
+    return 0;
+}
