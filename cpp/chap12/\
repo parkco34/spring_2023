@@ -31,10 +31,10 @@ Example:
 
 using namespace std;
 
-char getScore(string str, double total)
+int getScore(string str)
     // Loops thru answers and returns score for the string of text
 {
-    double score = 0; 
+    int score = 0;
     for (char c: str) {
         if (c == 'T')
             score += 2;
@@ -44,34 +44,23 @@ char getScore(string str, double total)
 
         else
             continue;
-    }
-    float percentage = (score / total) * 100;
 
-    // Getting percentage
-    if (percentage >= 90) 
-        return 'A';
-    else if (percentage >= 80)
-        return 'B';
-    else if (percentage >= 70)
-        return 'C';
-    else if (percentage >= 60)
-        return 'D';
-    else
-        return 'F';
+    }
+    return score;
 }
 
-// Compares the elements of two arrays
-void compare_and_output_equal_elements(const int* array1, const int* array2, size_t size) {
-    for (size_t i = 0; i < size; ++i) {
-        if (array1[i] == array2[i]) {
-            cout << "Equal elements found at index " << i << ": " << array1[i] << endl;
-        }
-    }
+char getLetterGrade(int score)
+{
+    if (score >= 90) return 'A';
+    else if (score >= 90) return 'B';
+    else if (score >= 80) return 'C';
+    else if (score >= 70) return 'D';
+    else return 'F';
 }
 
 int main()
 {
-    const char ID_LETTERS = 8; // Number of letters in each student id
+    char ID_LETTERS = 8; // Number of letters in each student id
     const int QUESTIONS = 20; // Number of questions
     const int NUM_OF_STUDENTS = 4; // Number of student ids
     string student_ids[NUM_OF_STUDENTS];
@@ -100,9 +89,7 @@ int main()
         student_ids[counter] = str.substr(0, index);
     
         //Gets student's scores
-        cout << str.substr(index+1, string::npos) << endl;
-        scores[counter] = getScore(str.substr(index+1, string::npos), QUESTIONS);
-        cout << scores[counter] << endl;
+        scores[counter] = getScore(str.substr(index+1, string::npos));
         
         // Next!
         counter++;
@@ -110,12 +97,8 @@ int main()
 
     // Output every element in the array
     for (int i=0; i<5; i++) {
-        cout << "Key: ";
-        for (int j=0; j<QUESTIONS; j++) {
-            cout << answers[j];
-        }
-        cout << endl;
-
+        cout << "Student IDs: " << endl;
+        cout << student_ids[i] << endl;
         cout << "Student's Scores:" << endl;
         cout << scores[i] << endl;
     }
