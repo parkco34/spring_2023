@@ -61,6 +61,7 @@ public class TestGraderCP
         }
         double percentage = (double) correct / answers.length * 100;
         System.out.println("\nYou answered " + correct + " out of " + answers.length + " questions correctly.");
+        // No idea why this outputting in the screwy format it does ...
         System.out.println("Your grade is " + percentage + "%.");
         passFail(percentage);
     }
