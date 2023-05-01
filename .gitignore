@@ -1,7 +1,7 @@
 Pip*
 .DS_Store
 delete*
-pyenv.cfg
+pyvenv.cfg
 
 /bin/
 /include/
