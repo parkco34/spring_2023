@@ -3,7 +3,7 @@ Pip*
 delete*
 pyenv*
 
-bin/
-include/
-lib/
-src/
+/bin/
+/include/
+/lib/
+/src/
