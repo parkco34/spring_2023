@@ -1,6 +1,9 @@
-Pip*
+Pipfile
+Pipfile.lock
 .DS_Store
-delete*
+delete.cpp
+delete.txt
+delete.out
 pyvenv.cfg
 
 /bin/
