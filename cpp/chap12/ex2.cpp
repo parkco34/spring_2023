@@ -38,10 +38,10 @@ Example:
 
 using namespace std;
 
-char getScore(string str, double total)
+int getScore(string str)
     // Loops thru answers and returns score for the string of text
 {
-    double percentage, score = 0; 
+    double score = 0; 
     for (char c: str) {
         if (c == 'T')
             score += 2;
@@ -52,9 +52,12 @@ char getScore(string str, double total)
         else
             continue;
     }
-    percentage = (score / total) * 100;
+    return score;
+}
 
-    // Getting percentage
+char getLetterGrade(int score, double total)
+{
+    double percentage = (score / total) * 100;
     if (percentage >= 90) 
         return 'A';
     else if (percentage >= 80)
@@ -69,7 +72,7 @@ char getScore(string str, double total)
 
 // For the sake of OVERLOADING
 // Compares the elements of two arrays
-void compare_and_output_equal_elements(const char* array1, const string* array2, size_t size) {
+void compare_and_output_equal_elements(const char* array1, const string& str, size_t size) {
     /* const int* = a pointer to a constant int array
      * size_t size = Common size to both arrays, represented as an unsigned integer,
      *  from index 0 to index size - 1
@@ -80,16 +83,29 @@ void compare_and_output_equal_elements(const char* array1, const string* array2,
         }
     }
 }
+void compare_and_output_equal_elements(const char* array1, const string& str, size_t size) {
+    for (size_t i = 0; i < size; ++i) {
+        if (array1[i] == str[i]) {
+            cout << "Equal elements found at index " << i << ": " << array1[i] << endl;
+        }
+    }
+}
+
 
 int main()
 {
+    // Initialize variablesa
+    // --------------------------------------------
     const char ID_LETTERS = 8; // Number of letters in each student id
     const int QUESTIONS = 20; // Number of questions
     const int NUM_OF_STUDENTS = 4; // Number of student ids
     string student_ids[NUM_OF_STUDENTS];
     // Store answers to the 20 questions
     char answers[21];
-    char scores[NUM_OF_STUDENTS];
+    // Get size of answers array
+    size_t size = sizeof(answers) / sizeof(answers[0]);
+    int scores[NUM_OF_STUDENTS];
+    char letterGrades[NUM_OF_STUDENTS]; // Array of correpsonding student's letter grade
     string attempts[QUESTIONS]; // Array of each student's attempts
     string str;
     int counter = 0; // For keeping track of which student we store scores for
@@ -113,7 +129,10 @@ int main()
         int index = str.find(' ');
         student_ids[counter] = str.substr(0, index);
         //Gets student's scores
-        scores[counter] = getScore(str.substr(index+1, string::npos), QUESTIONS);
+        compare_and_output_equal_elements(answers, attempts[counter], size);
+        scores[counter] = getScore(str.substr(index+1, string::npos));
+        //Gets student's letter grade
+        letterGrades[counter] = getLetterGrade(scores[counter], QUESTIONS);
         // Loop thru each attempt character and append it to any empty string
         attempts[counter] = str.substr(index+1, string::npos);
         // Next!
@@ -129,12 +148,11 @@ int main()
 
     // Check which Student's attempts are correct
     // works by dividing the total size of the array in bytes by the size of a single element in bytes
-//    size_t size = sizeof(answers) / sizeof(answers[0]);
     for (int i=0; i<NUM_OF_STUDENTS; i++) {
         cout << student_ids[i];
         cout << " " << attempts[i]; 
-        cout << " " << scores[i] << endl;
-//        compare_and_output_equal_elements(answers, attempts[i], size);
+        cout << " " << scores[i];
+        cout << " " << letterGrades[i] << endl;
     }
     return 0;
 }
