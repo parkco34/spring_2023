@@ -15,14 +15,21 @@
  *  -> Answers
  *  -> Test Scores
  *  -> Test Grade
- *  -> 
  *
  * Remember, a space indicates that a question has been skipped. If spaces are added for formating, there are too many or too few, it may affect the accuracy of your program.
  --------------------------------------
 Example: 
     ABC54102 T FTFTFTTTFTTFTTF TF
     score = 2+0-1+1-1+1-1+1+1+1-1+1+1-1+1+1-1+0+1-1
-         = 
+         = 15
+    percentage = score / QUESTIONS
+
+    OUTPUT:
+    Key TTFTFTTTFTFTFFTTFTTF
+    ABC54102 T FTFTFTTTFTTFTTF TF 27 D
+    DEF56278 TTFTFTTTFTFTFFTTFTTF 40 A
+    ABC42366 TTFTFTTTFTFTFFTTF 34 B
+    ABC42586 TTTTFTTT TFTFFFTF 26 D
  --------------------------------------
  * */
 #include <iostream>
@@ -34,7 +41,7 @@ using namespace std;
 char getScore(string str, double total)
     // Loops thru answers and returns score for the string of text
 {
-    double score = 0; 
+    double percentage, score = 0; 
     for (char c: str) {
         if (c == 'T')
             score += 2;
@@ -45,7 +52,7 @@ char getScore(string str, double total)
         else
             continue;
     }
-    float percentage = (score / total) * 100;
+    percentage = (score / total) * 100;
 
     // Getting percentage
     if (percentage >= 90) 
@@ -60,10 +67,15 @@ char getScore(string str, double total)
         return 'F';
 }
 
+// For the sake of OVERLOADING
 // Compares the elements of two arrays
-void compare_and_output_equal_elements(const int* array1, const int* array2, size_t size) {
+void compare_and_output_equal_elements(const char* array1, const string* array2, size_t size) {
+    /* const int* = a pointer to a constant int array
+     * size_t size = Common size to both arrays, represented as an unsigned integer,
+     *  from index 0 to index size - 1
+    */
     for (size_t i = 0; i < size; ++i) {
-        if (array1[i] == array2[i]) {
+        if (array1[i] == array2[i][0]) {
             cout << "Equal elements found at index " << i << ": " << array1[i] << endl;
         }
     }
@@ -77,7 +89,8 @@ int main()
     string student_ids[NUM_OF_STUDENTS];
     // Store answers to the 20 questions
     char answers[21];
-    int scores[NUM_OF_STUDENTS];
+    char scores[NUM_OF_STUDENTS];
+    string attempts[QUESTIONS]; // Array of each student's attempts
     string str;
     int counter = 0; // For keeping track of which student we store scores for
 
@@ -89,36 +102,39 @@ int main()
         return 1;
     }
 
+    // Putting answer key into answers array
     getline(infile, str);
     for (int i=0; i < str.length(); i++)
         answers[i] = str[i];
-  
+    
+    // Entering corresponding data into appropriate arrays
     while(getline(infile, str) && counter < NUM_OF_STUDENTS) {
         // Get Student ids
-        char prevChar = '\0';
         int index = str.find(' ');
         student_ids[counter] = str.substr(0, index);
-    
         //Gets student's scores
-        cout << str.substr(index+1, string::npos) << endl;
         scores[counter] = getScore(str.substr(index+1, string::npos), QUESTIONS);
-        cout << scores[counter] << endl;
-        
+        // Loop thru each attempt character and append it to any empty string
+        attempts[counter] = str.substr(index+1, string::npos);
         // Next!
         counter++;
     }
 
     // Output every element in the array
-    for (int i=0; i<5; i++) {
-        cout << "Key: ";
-        for (int j=0; j<QUESTIONS; j++) {
-            cout << answers[j];
-        }
-        cout << endl;
-
-        cout << "Student's Scores:" << endl;
-        cout << scores[i] << endl;
+    cout << "Key ";
+    for (int i=0; i<QUESTIONS; i++) {
+        cout << answers[i];
     }
-    
+    cout << endl;
+
+    // Check which Student's attempts are correct
+    // works by dividing the total size of the array in bytes by the size of a single element in bytes
+//    size_t size = sizeof(answers) / sizeof(answers[0]);
+    for (int i=0; i<NUM_OF_STUDENTS; i++) {
+        cout << student_ids[i];
+        cout << " " << attempts[i]; 
+        cout << " " << scores[i] << endl;
+//        compare_and_output_equal_elements(answers, attempts[i], size);
+    }
     return 0;
 }

@@ -1,0 +1,9 @@
+Pip*
+.DS_Store
+delete*
+pyenv*
+
+bin/
+include/
+lib/
+src/

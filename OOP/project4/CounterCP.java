@@ -3,21 +3,8 @@ import java.util.Scanner;
 
 public class CounterCP
 {
-    public static int getProperInt(input, String prompt)
-    {
-        int num;
-        while(true) {
-            System.out.println(prompt);
-            try
-        }
-    }
-
     public static void main(String[] args)
     {
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Integer Array Analyzer");
-        System.out.println("This program will display and count the number of evens/odds and positive/negative values in a user-created array of integers.");
 
     }
 }
