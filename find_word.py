@@ -47,26 +47,25 @@ def search_word_in_file(file_path, search_word):
         return search_in_docx(file_path, search_word)
     return False
 
-def main():
-    search_directory = input("Enter the directory path: ")
-    search_word = input("Enter the word you want to search for: ")
-
-    found_files = []
-
+def search_in_directory(search_directory, search_word):
     for root, _, files in os.walk(search_directory):
         for file in files:
             file_path = os.path.join(root, file)
             if search_word_in_file(file_path, search_word):
-                found_files.append(file_path)
+                return file_path
+    return None
 
-    if found_files:
-        print(f"Found {search_word} in the following files:")
-        for file_path in found_files:
-            print(file_path)
+def main():
+    search_directory = input("Enter the directory path: ")
+    search_word = input("Enter the word you want to search for: ")
+
+    found_file = search_in_directory(search_directory, search_word)
+
+    if found_file:
+        print(f"Found {search_word} in the file: {found_file}")
     else:
         print(f"{search_word} not found in any file.")
 
 if __name__ == "__main__":
     main()
-
 
