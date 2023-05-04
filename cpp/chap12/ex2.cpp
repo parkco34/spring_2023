@@ -38,23 +38,6 @@ Example:
 
 using namespace std;
 
-int getScore(string str)
-    // Loops thru answers and returns score for the string of text
-{
-    double score = 0; 
-    for (char c: str) {
-        if (c == 'T')
-            score += 2;
-
-        else if (c == 'F')
-            score -= 1;
-
-        else
-            continue;
-    }
-    return score;
-}
-
 char getLetterGrade(int score, double total)
 {
     double percentage = (score / total) * 100;
@@ -72,23 +55,25 @@ char getLetterGrade(int score, double total)
 
 // For the sake of OVERLOADING
 // Compares the elements of two arrays
-void compare_and_output_equal_elements(const char* array1, const string& str, size_t size) {
-    /* const int* = a pointer to a constant int array
+int compare_and_output_equal_elements(const char* array1, const string& str, size_t size) {
+    /* const int* = a pointer to a constant int array, allowing the function to accept an array of character as input
      * size_t size = Common size to both arrays, represented as an unsigned integer,
      *  from index 0 to index size - 1
+     *  Const. forbids the function from making modiifications
     */
-    for (size_t i = 0; i < size; ++i) {
-        if (array1[i] == array2[i][0]) {
-            cout << "Equal elements found at index " << i << ": " << array1[i] << endl;
-        }
-    }
-}
-void compare_and_output_equal_elements(const char* array1, const string& str, size_t size) {
+    int score = 0;
     for (size_t i = 0; i < size; ++i) {
         if (array1[i] == str[i]) {
-            cout << "Equal elements found at index " << i << ": " << array1[i] << endl;
+            score += 2;
+        }
+        else if (str[i] == ' ') {
+            // Do nothing
+        }
+        else {
+            score -= 1;
         }
     }
+    return score;
 }
 
 
@@ -124,17 +109,22 @@ int main()
         answers[i] = str[i];
     
     // Entering corresponding data into appropriate arrays
+    //Gets student's scores
     while(getline(infile, str) && counter < NUM_OF_STUDENTS) {
         // Get Student ids
         int index = str.find(' ');
         student_ids[counter] = str.substr(0, index);
-        //Gets student's scores
-        compare_and_output_equal_elements(answers, attempts[counter], size);
-        scores[counter] = getScore(str.substr(index+1, string::npos));
-        //Gets student's letter grade
+
+        // Get student's attempts
+        string student_attempt = str.substr(index+1, string::npos);
+        attempts[counter] = student_attempt;
+
+        // Calculate student's scores using the modified compare_and_output_equal_elements function
+        scores[counter] = compare_and_output_equal_elements(answers, student_attempt, size);
+
+        // Get student's letter grade
         letterGrades[counter] = getLetterGrade(scores[counter], QUESTIONS);
-        // Loop thru each attempt character and append it to any empty string
-        attempts[counter] = str.substr(index+1, string::npos);
+
         // Next!
         counter++;
     }
@@ -148,11 +138,14 @@ int main()
 
     // Check which Student's attempts are correct
     // works by dividing the total size of the array in bytes by the size of a single element in bytes
-    for (int i=0; i<NUM_OF_STUDENTS; i++) {
+    // ...
+
+    for (int i = 0; i < NUM_OF_STUDENTS; i++) {
         cout << student_ids[i];
-        cout << " " << attempts[i]; 
+        cout << " " << attempts[i];
         cout << " " << scores[i];
         cout << " " << letterGrades[i] << endl;
     }
+
     return 0;
 }

@@ -12,11 +12,11 @@ class classExample
     int x;
 
     public:
-        void setX(int a);
+        void setX(int& a);
         void print() const;
 };
 
-void classExample::setX(int a)
+void classExample::setX(int& a)
 {
     x = a;
 }
@@ -60,11 +60,11 @@ int main()
 
     cExPtr = &cExObject;
     
-    cExPtr -> setX(5);
+//    cExPtr -> setX(5);
     cExPtr -> print();
     cout << "That did the same as this: " << endl;
-    (*cExPtr).setX(5);
-    (*cExPtr).print();
+//    (*cExPtr).setX(5);
+//    (*cExPtr).print();
     cout << "For: (*cExPtr).setX(5) = (*cExPtr).print()" << endl;
     cout << "=========================================================" << endl;
     int *q;

@@ -1,61 +1,83 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
-char calculate_grade(int score) {
-    float percentage = (float)score / 40.0 * 100;
-    if (percentage >= 90) return 'A';
-    if (percentage >= 80) return 'B';
-    if (percentage >= 70) return 'C';
-    if (percentage >= 60) return 'D';
-    return 'F';
+struct Student {
+    string id;
+    string answers;
+    int score;
+    char grade;
+};
+
+int getScore(const string& answers, const string& studentAnswers) {
+    int score = 0;
+    for (size_t i = 0; i < studentAnswers.length(); ++i) {
+        if (studentAnswers[i] == answers[i]) {
+            score += 2;
+        } else if (studentAnswers[i] == ' ') {
+            // Do nothing
+        } else {
+            score -= 1;
+        }
+    }
+    return score;
+}
+
+char getLetterGrade(int score, int totalQuestions) {
+    double percentage = (static_cast<double>(score) / (totalQuestions * 2)) * 100;
+    if (percentage >= 90)
+        return 'A';
+    else if (percentage >= 80)
+        return 'B';
+    else if (percentage >= 70)
+        return 'C';
+    else if (percentage >= 60)
+        return 'D';
+    else
+        return 'F';
 }
 
 int main() {
-    ifstream input_file("test_data.txt");
-    if (!input_file.is_open()) {
-        cerr << "Error: Unable to open file." << endl;
+    ifstream infile("Ch12_Ex2Data.txt");
+
+    if (!infile) {
+        cout << "Error opening file." << endl;
         return 1;
     }
 
-    string correct_answers;
-    getline(input_file, correct_answers);
+    string answers;
+    getline(infile, answers);
 
-    cout << "Key " << correct_answers << endl;
+    const int numOfStudents = 4;
+    Student* students = new Student[numOfStudents];
 
-    string student_entry;
-    while (getline(input_file, student_entry)) {
-        string student_id = student_entry.substr(0, 7);
-        string student_answers = student_entry.substr(8);
-        int score = 0;
+    int index = 0;
+    string line;
+    while (getline(infile, line) && index < numOfStudents) {
+        size_t spacePos = line.find(' ');
+        students[index].id = line.substr(0, spacePos);
+        students[index].answers = line.substr(spacePos + 1);
 
-        for (size_t i = 0, j = 0; i < 20 && j < student_answers.size(); ++i, ++j) {
-            while (j < student_answers.size() && student_answers[j] == ' ') {
-                ++j;
-            }
+        students[index].score = getScore(answers, students[index].answers);
+        students[index].grade = getLetterGrade(students[index].score, answers.length());
 
-            if (j < student_answers.size()) {
-                if (student_answers[j] == correct_answers[i]) {
-                    score += 2;
-                } else {
-                    score -= 1;
-                }
-            }
-        }
-
-        char grade = calculate_grade(score);
-        cout << student_id << " ";
-
-        for (size_t i = 0; i < student_answers.size(); ++i) {
-            cout << student_answers[i];
-        }
-
-        cout << " " << score << " " << grade << endl;
+        ++index;
     }
 
-    input_file.close();
+    infile.close();
+
+    cout << "Processing Data" << endl;
+    cout << "Key: " << answers << endl;
+
+    for (int i = 0; i < numOfStudents; ++i) {
+        cout << students[i].id << " " << students[i].answers << "  " << students[i].score << "  " << students[i].grade << endl;
+    }
+
+    delete[] students;
+
     return 0;
 }
 
