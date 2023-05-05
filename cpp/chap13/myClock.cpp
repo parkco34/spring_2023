@@ -9,9 +9,15 @@ int main()
     Clock yourClock(4, 5, 30);
     myClock.printTime();
     myClock.incrementSeconds();
+    cout << endl;
+    yourClock.printTime();
 
-    if (myClock.equalTime(yourClock)) {
-        cout << "Hi there little fella" << endl;
+    
+    // Operator Overloading
+    cout << myClock << endl;
+    myClock++;
+    if (myClock == yourClock) {
+        cout << "Vera nice ... " << endl;
     }
 
     return 0;
