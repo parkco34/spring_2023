@@ -20,11 +20,18 @@ class Clock
         void incrementSeconds();
         void incrementMinutes();
         void incrementHours();
-        bool equalTime(const Clock& otherClock) const; // formal parameter receives the address of the actual parameter, but the formal parameter cannot modify the value of the actual parameter
+        bool equalTime(const Clock& otherClock) const; // formal parameter receives the address of the actual parameter, but the formal parameter cannot modify the value of the actual parameterL
+       // Overloading Equaltity operator
+        bool operator==(const Clock& otherClock) const;
+        bool operator!=(const Clock& otherClock) const;
+        bool operator<(const clock& otherClock) const;
+        bool operator>(const Clock& otherClock) const;
+        Clock operator+(const Clock& otherClock) const;
+        Clock operator-(const Clock& otherClock) const;
+        Clock operator*(const Clock& otherClock) const;
         
         // Constructors
-        Clock();
-        Clock(int, int, int);
+        Clock(int = 0, int = 0, int = 0);
         
     private:
         int hr;

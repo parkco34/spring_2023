@@ -13,12 +13,11 @@ int main()
     yourClock.printTime();
 
     
-    // Operator Overloading
-    cout << myClock << endl;
-    myClock++;
-    if (myClock == yourClock) {
+    if (myClock.equalTime(yourClock)) {
         cout << "Vera nice ... " << endl;
     }
+    else
+        cout << "\nNope" << endl;
 
     return 0;
 }

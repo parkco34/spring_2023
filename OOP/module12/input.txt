@@ -1,0 +1,10 @@
+Red
+Orange
+Yellow
+Lime Green
+Green
+Blue
+Indigo
+Violet
+Fuschia
+Pink

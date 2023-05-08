@@ -107,4 +107,32 @@ bool Clock::equalTime(const Clock& otherClock) const
             && sec == otherClock.sec);
 }
 
+// Overloading Operators
+bool Clock::operator==(const Clock& otherClock) const
+{
+    return (hr == otherClock.hr
+            && min == otherClock.min
+            && sec == otherClock.sec);
+}
+
+bool Clock::operator!=(const Clock& otherClock) const
+{
+    return (hr != otherClock.hr
+            && min != otherClock.min
+            && sec != otherClock.sec);
+}
+
+bool Clock::operator<(const Clock& otherClock) const
+{
+    return (hr < otherClock
+            && min < otherClock
+            && sec < otherClock);
+}
+
+bool Clock::operator>(const Clock& otherClock) const
+{
+    return (hr > otherClock.hr
+            && min > otherClock.min
+            && sec > otherClock.sec);
+}
 
