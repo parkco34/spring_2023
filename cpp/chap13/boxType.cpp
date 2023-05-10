@@ -132,3 +132,4 @@ istream& operator>>(istream& is, boxType& box)
     is >> box.length >> box.width >> box.height;
     return is;
 }
+

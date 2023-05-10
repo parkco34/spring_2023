@@ -1,49 +1,41 @@
-#ifndef H_rectangleType
-#define H_rectangleType
+#ifndef H_boxType
+#define H_boxType
 
-#include <iostream>
+#include "rectangleType.h"
 
-using namespace std;
-
-class rectangleType {
+class boxType : public rectangleType
+{
 public:
-    // Member functions
-    void setDimension(double l, double w);
-    double getLength() const;
-    double getWidth() const;
-    double area() const;
-    double perimeter() const;
+    void setDimension(double l, double w, double h);
+    double getHeight() const;
+    double volume() const;
 
-    rectangleType();
-    rectangleType(double l, double w);
+    // Overloaded operators
+    boxType operator+(const boxType& otherBox) const;
+    boxType operator-(const boxType& otherBox) const;
+    boxType operator*(const boxType& otherBox) const;
+    bool operator==(const boxType& otherBox) const;
+    bool operator!=(const boxType& otherBox) const;
+    bool operator<=(const boxType& otherBox) const;
+    bool operator<(const boxType& otherBox) const;
+    bool operator>=(const boxType& otherBox) const;
+    bool operator>(const boxType& otherBox) const;
+    boxType operator++();    // pre-increment
+    boxType operator++(int); // post-increment
+    boxType operator--();    // pre-decrement
+    boxType operator--(int); // post-decrement
 
-    // Overload the arithmetic operators
-    rectangleType operator+(const rectangleType& rectangle) const;
-    rectangleType operator-(const rectangleType& rectangle) const;
-    rectangleType operator*(const rectangleType& rectangle) const;
+    friend std::ostream& operator<<(std::ostream& os, const boxType& box);
+    friend std::istream& operator>>(std::istream& is, boxType& box);
 
-    // Overload the increment and decrement operators
-    rectangleType operator++(); // pre-increment
-    rectangleType operator++(int); // post-increment
-    rectangleType operator--(); // pre-decrement
-    rectangleType operator--(int); // post-decrement
+    // Constructors
+    boxType();
+    boxType(double l, double w, double h);
 
-    // Overload the relational operators
-    bool operator==(const rectangleType& rectangle) const;
-    bool operator!=(const rectangleType& rectangle) const;
-    bool operator<=(const rectangleType& rectangle) const;
-    bool operator<(const rectangleType& rectangle) const;
-    bool operator>=(const rectangleType& rectangle) const;
-    bool operator>(const rectangleType& rectangle) const;
-
-    // Overload the stream insertion and extraction operators
-    friend ostream& operator<<(ostream&, const rectangleType&);
-    friend istream& operator>>(istream&, rectangleType&);
-
-protected:
-    double length;
-    double width;
+private:
+    double height;
 };
 
 #endif
+
 
