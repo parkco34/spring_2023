@@ -1,0 +1,16 @@
+---------------------
+SQL Injection Attack:
+---------------------
+    - Works on dynamic SQL statements
+    Dynamic statement - Statement that's generated t run time using parameters password from a web query or URI query string
+
+================================================================================
+CREATE TABLE `users` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(45) NULL,
+  `password` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+  
+  insert into users (email, password) values ('m@m.com', md5('abc'));
+================================================================================
+
