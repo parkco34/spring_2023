@@ -1,38 +1,38 @@
-#ifndef H_boxType
-#define H_boxType
+#include <fstream>
+using namespace std;
 
-#include "rectangleType.h"
-
-class boxType : public rectangleType
+class rectangleType
 {
-public:
-    void setDimension(double l, double w);
-    double getHeight() const;
-    double getLength() const;
-    double area() const;
-    double perimeter() const;
-    double volume() const;
-    void print() const;
-
-    // Overloaded arithmetic operators
-    rectangleType operator+(const rectangleType&) const;
-    rectangleType operator*(const rectangleType&) const;
-
-    // Overloaded relational operators
-    bool operator==(const rectangleType&) const;
-    bool operator!=(const rectangleType&) const;
+    // Friend functions
+    friend void rectangleFriend(rectangleType recObejct);
     
-    friend std::ostream& operator<<(std::ostream& os, const boxType& box);
-    friend std::istream& operator>>(std::istream& is, boxType& box);
+    public:
+        rectangleType& doubleDimensions(); // & is for Efficiency
+        void setDimension(double len, double wid);
+        double getLength() const;
+        double getWidth() const;
+        double area() const;
+        double perimeter() const;
+        void print() const;
 
-    // Constructors
-    boxType();
-    boxType(double l, double w);
+        // constructors
+        rectangleType(double len=0.0, double wid=0.0);
 
-private:
-    double height;
+        rectangleType& setLength(double length);
+        rectangleType& setWidth(double width);
+
+        // Overloaded member functions
+        rectangleType operator+(const rectangleType& rectangle) const;
+        rectangleType operator*(const rectangleType& rectangle) const;
+        bool operator==(const rectangleType&) const;
+        bool operator!=(const rectangleType&) const;
+        bool operator<=(const rectangleType&) const;
+        bool operator<(const rectangleType&) const;
+
+        // Overloaded nonmember functions
+        friend istream& operator>>(istream&, rectangleType&);
+        friend ostream& operator<<(ostream&, const rectangleType&);
+    
+    private:
+        double width, length;
 };
-
-#endif
-
-
