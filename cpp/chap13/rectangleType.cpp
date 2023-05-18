@@ -22,7 +22,6 @@ rectangleType& rectangleType::doubleDimensions()
     return *this;
 }
 
-
 double rectangleType::getLength() const
 {
     return length;
@@ -127,6 +126,6 @@ istream& operator>>(istream& isObject, rectangleType& rectangle)
 ostream& operator<<(ostream& osObject, const rectangleType& rectangle)
 {
     osObject << "Length: " << rectangle.getLength() 
-             << ", Width: " << rectangle.getWidth();
+             << ", Width: " << rectangle.getWidth() << '\n';
     return osObject;
 }

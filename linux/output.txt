@@ -1,0 +1,845 @@
+MOD4: FILESYSTEM MANAGEMENT
+1) A symbolic link is also known as a soft link and is depicted by an @ symbol appearing at the beginning of the filename when viewed using the ls -l command. True or False?
+    - False
+
+2) What was created to define a standard directory structure and common file location for Linux?:
+    - FHS
+
+3) There is no real difference between the "S" and "s" special permissions when displayed using the ls -l command. One just means it is on a file and the other that it is on a directory. True or False?:
+    - False
+
+4) The default permissions given by the system prior to analyzing the umask are __________ for directories and ___________ for files.:
+    - rwxrwxrwx and rw-rw-rw-
+
+5) What must a user do to run cp or mv interactively and be asked if she wants to overwrite an existing file?:
+    - Type cp -i or mv -i.
+
+6) The root user utilizes the chgrp command to give ownership of a file to another user. what must the root user do to regain ownership of the file?:
+ - Have the new owner run chgrp and list the root user as the new owner
+
+7) After typing the ls -F command, you see the following line in the output:
+
+-rw-r-xr- - 1 user1 root 0 Apr 29 15:40 file1
+
+What does this mean?:
+    - User1 has read and write permission, members of the root group have read and execute permissions, and all others have read permissions to the file
+
+8) After typing the command umask 731, the permissions on all subsequently created files and directories will be affected. In this case, what will be the permissions on all new files?:
+    - — -r-rw-
+
+9) When you change the data in a file that is hard-linked to three others,:
+    - the data in the file you modified as well as the data in all hard-linked files are modified, because they share the same data and all have the same inode and file size
+
+10) The command chmod 317 file1 would produce which of the following lines in the ls command?:
+    - -wx- -xrwx 1 user1 root 0 Apr 29 15:40 file1
+
+11) Which of the following commands will change the user ownership and group ownership of file1 to user1 and root, respectively?:
+    - chown user1:root file1
+
+12) What does the /var directory contain?:
+    - spools and log files
+
+13) What does the mv command do?:
+    - it moves a directory/file
+
+14) A file has the following permissions: r- - -x-w-. The command chmod 143 would have the same effect as the command:
+    - chmod u=x,g=r,o=wx file1
+
+15) The which command : 
+    - searches for a file only in directories that are in the PATH variable
+
+16) Hard links need to reside on the same filesystem as the target, whereas symbolic links need not be on the same filesystem as the target. True or False?:
+    - True
+
+17) When applied to a directory, the SGID special permission :
+    - causes all new files created in the directory to have the same group membership as the directory, and not the entity that created them
+
+18) Which command do you use to rename files and directories?:
+    - mv
+
+19) What are the three standard Linux permissions?:
+    - execute, read, write
+
+20) Given the following output from the ls command, how many files are linked with file1?:
+    - two
+
+
+MOD5: FILE SYSTEM ADMIN
+1) Given the following output from /etc/fstab, which filesystems will be automatically checked on boot by the fsck command?
+
+/dev/sda1 / ext4 defaults 1 1
+none /dev/pts devpts gid=5,mode=620 1 0
+none /proc proc defaults 0 1
+none /dev/shm tmpfs defaults 1 0
+/dev/sdc2 swap swap defaults 0 1
+/dev/dvd /media/dvd iso9660 noauto,ro 0 0:
+
+2) A user mounts a device to a mount point directory and realizes afterward she needs files previously found within the mount point directory. 
+What should this user do?
+
+3) Which command is used to display the amount of free space that exists on a filesystem?
+
+4) What must you do to successfully run the fsck command on a filesystem?
+
+5) Character devices typically transfer data more quickly than block devices. True or False?
+
+6) What does the du -s /var command do?
+
+7) What does the command dumpe2fs –h do?
+
+8) Which command can be used to repair an XFS filesystem?
+
+9) True statements:
+    - Quotas can limit both user space and the number of files a user can own.
+    - Hard limits can never be exceeded
+    - Soft limits allow a user to exceed them for a certain period of time
+
+10) A device file ____:
+    - Has no data section
+    - Displays major and minor number in place of a file size
+
+11) What about LVMs?
+
+12) The lvextend command can be used to add unused space within a volume group to an existing logical volume. True or False?
+
+13) You plug a USB flash memory drive into a system that has two SATA hard disks. How will the partition on this USB flash memory drive be identified by Linux?
+
+14) command mounts all existing filesystems in /etc/fstab?
+
+15) A user runs the fsck command with the -f option on an ext4 filesystem that is showing signs of corruption. How would that user locate any files the system was unable to repair?
+
+16) Which command is used to format a partition on a hard disk drive with the ext4 filesystem?
+
+
+TEST
+1) Jackson wants to automatically mount a secondary internal hard drive when his Linux workstation boots up. In which of the following files should he configure an entry for the partition on the drive that he wants to mount?
+
+2) Aria has modified the hard disk that hosts the operating system by using the fdisk command. The fdisk command indicates that the new partition information must be manually reloaded. Which of the following should she do next? (Choose two. Either answer is independently correct.)
+
+3) Which of the following would be the device file for the third partition on the second SATA drive on a Linux system?
+
+4) If the physical extent of a volume group is set to 32MB, what is the maximum logical volume size?
+
+5) Which of the following commands cannot be used to create an exFAT filesystem on a USB thumb drive that is recognized as /dev/sdb?
+
+6) Clint has run the command parted /dev/sdb and wants to display a list of the existing partitions that exist on that drive. Which of the following commands can he use to display the existing partitions?
+
+7) Callie wants to make sure that a filesystem is checked every 20 days. Which of the following options, when used with the tune2fs command, would set a full filesystem check to run every 14 days?
+
+8) Elijah is done working with an external USB hard drive and wants to properly disconnect it. Which of the following commands should he use before unplugging the USB cable?
+
+
+MOD6: LINUX SERVER DEPLOYMENT
+1) BTRFS filesystems do not need to be checked for errors as they are resilient to data corruption. True or False?
+    false
+
+2) Which of the following describes a computer that is used to access an iSCSI hard disk across the network?
+    iSCSI initiator
+
+3) You want to view log files to get information about a problem that occurred during a Linux installation. In which directory will you likely find the log files?
+    /var/log
+
+4) Which of the following RAID levels is not fault tolerant?
+     RAID 0 	
+
+5) Which command can you use during a system rescue to switch from the root of the live OS to the root of the Linux system installed on the hard disk?
+    chroot
+
+6) Which of the following is not a type of RAID?
+    serial RAID 	
+
+7) When configuring a virtual hard disk file, which term refers to the feature that allows the virtual hard disk file to expand dynamically as space is requested by the guest operating system?
+    thin provisioning
+
+8) DM-MPIO can be configured to provide multiple, redundant connections to data stored on a SAN. True or False?
+    false
+
+9) What component of a Linux server is used to connect to a Fibre Channel SAN?
+    FC HBA
+
+10) Which type of RAID can be entirely configured during the Linux installation process?
+    software RAID
+
+11) What command can be used to create a ZFS volume called test from the space on /dev/sdb and /dev/sdc that functions like RAID level 1?
+    zpool create test mirror /dev/sdb /dev/sdc
+
+12) To which directory will the test ZFS volume from the previous question be mounted by the ZFS system?
+    /test
+
+13) Linux servers are typically installed in a rack using rackmount server hardware. Which of the following describes the minimum height of a rackmount server?
+    U1
+
+14) Which of the following commands can quickly determine whether your network hardware was detected properly following a Linux installation?
+    lshw -class network
+
+15) ZFS volumes are mounted at boot time from entries within /etc/fstab by default. True or False?
+    false
+
+16) Which of the following could result in a segmentation fault (fatal signal 11) during a Fedora installation?
+     RAM problems 	
+	 overclocked CPU 	
+     faulty hardware components 
+
+ 17) When viewing the output of the lsmod command, you notice several modules that start with vmw. What does this indicate?
+    Linux is running as a guest operating system
+
+18) What type of redundant storage configuration is most common for hosting the operating system and applications on a server?
+    RAID 1
+
+19) Where is the /proc filesystem stored?
+    in RAM
+
+20) Which of the following commands can be used on a modern Linux system to view hardware information that was captured at the beginning of the boot process?
+    journalctl -k
+
+
+TEST
+1) Which command should you run after installing a new kernel module to update the module dependency database?
+    depmod
+
+2) Leonard wants to find detailed information about the Bluetooth kernel module. Which of the following commands can he use to display this information?
+    modinfo bluetooth 
+
+3) In order to create and manage KVM or Qemu virtual machines, a Linux system must have which of the following installed?
+    libvert
+
+4) Which of the following commands will display messages that were displayed during the boot sequence by the kernel?
+    dmesg 
+
+5) Which of the following commands can be used to display general hardware information for the entire system?
+    lshw
+
+6) Which of the following commands will display the current CPU(s) detected by a Linux system?
+    cat /proc/cpuinfo
+
+7) Which of the following is a type of software that allows a piece of hardware to host multiple operating systems?
+    hypervisor
+
+8) On a system using the KVM hypervisor, which of the following modules would you expect to see as part of the output of the lsmod command on a guest Linux virtual machine?
+    virtio
+
+MOD7: WORKING WITH BASH SHELL
+1) Because stderr and stdout represent the results of a command and stdin represents the input required for a command, only stderr and stdout can be redirected to/from a file. True or False?:
+    - false
+
+2) Before a user-defined variable can be used by processes that run in subshells, that variable must be:
+    - export
+
+3) Both aliases and functions can be used to store commands that can be executed, but functions can also accept positional parameters. True or False?:
+    - true
+
+4) Which of the following files is always executed immediately after any user logs in to a Linux system and receives a BASH shell?:
+    - /etc/profile
+
+5) Which command could you use to see a list of all environment and user-defined shell variables as well as their current values?:
+    - set
+
+6) Every if construct begins with if and must be terminated with?:
+    - fi
+
+7) Which of the following will display the message welcome home if the cd /home/user1 command is successfully executed?:
+    - cd /home/user1 && echo "welcome home"
+
+8) The current value for the HOME variable is displayed by which of the following commands? (Choose all that apply.):
+    - echo~
+echo $HOME
+
+9) Which of the following variables could access the value "/etc" within the sample shell script, if the sample shell script was executed using the bash sample /var /etc /bin command?:
+    - 2
+
+10) Which of the following operators reverses the meaning of a test statement?: 
+    - !
+
+11) What would be the effect of using the alias command to make an alias for the date command named cat in honor of your favorite pet?: 
+    - When you use the cat command at the command prompt with the intention of viewing a text file, the date appears instead.
+
+12) How do you indicate a comment line in a shell script?:  
+    - Begin the line with #
+
+13) You have redirected stderr to a file called Errors. You view the contents of this file afterward and notice that there are six error messages. After repeating the procedure, you notice that there are only two error messages in this file. Why?:
+    - You have redirected stderr to a file called Errors. You view the contents of this file afterward and notice that there are six error messages. After repeating the procedure, you notice that there are only two error messages in this file. Why?
+    You did not append the Standard Error to the Error file and as a result, it was overwritten when the command was run a second time.
+
+14) The sed and awk commands are filter commands commonly used to format data within a pipe. True or False?
+    - true
+
+15) You attempt to perform the git commit -m "Added listdir function" but the command fails. What are possible reasons for the failure?:        - No files were added to the Git index beforehand.
+    The user performing the commit has not set their Git user information.
+    The user performing the commit is not running the command from within the Git repo directory.
+
+16) Which of the following lines can be used to perform command substitution within a shell script?:
+    - `command`
+    $(command)
+
+17) Which construct can be used in a shell script to read stdin and place it in a variable?:
+    - read
+
+18) A for construct is a loop construct that processes a specified list of objects. As a result, it is executed as long as there are remaining objects to process. True or False?:
+    - true
+
+19) What does &> accomplish when entered on the command line after a command?:
+    - It redirects both stderr and stdout to the same location.
+
+20) not red or blue
+
+MOD8: SYSTEM INITIALIZATION, X WINDOWS, LOCA
+1) Which command can be used to modify the default locale on the system?:
+    - localectl
+
+2) Which of the following statements is true?:
+    - Which of the following statements is true?
+    After modifying /etc/default/grub, you must run the grub2-mkconfig command before the changes are made to GRUB2.
+
+3) Which directory stores most UNIX SysV rc scripts?:
+    - /etc/init.d
+
+4) Which runlevel halts the system?:
+    - 0
+
+5) Which file does the UNIX SysV init daemon reference on startup to determine the default runlevel?:
+    - /etc/inittab
+
+
+6) Which command can be used to start X Windows, the window manager, and the default desktop environment?:
+    - startx
+
+7) Which of the following statements is true?:
+    - UTF-8 is commonly used to provide Unicode character set support.
+
+8) Which of the following indicates the second MBR partition on the third hard disk drive to GRUB2?:
+    - hd2,msdo2
+
+9) Which two implementations of X Windows are commonly used in Linux?:
+    - X.org
+    - Waylanmd
+
+10) What is the name of the directory that contains symbolic links to UNIX SysV rc scripts for runlevel 2?:
+    - . /etc/rc2.d
+
+11) In what directory is Stage 2 of the GRUB2 boot loader stored?:
+    - /boot
+
+12) The first daemon loaded on a Linux system is :
+    - init
+
+13) Which command causes the system to enter Single User Mode?:
+    - init 1
+
+14) Which assistive technology will make a desktop environment more accessible to a person with low vision?:
+    - High contrast
+
+15) You have recently modified the system time using the date command. What command can you run to ensure that the same time is updated within the system BIOS?:
+    - hwclock -w
+
+16) You want to configure the runlevels that a particular upstart daemon is started in. What should you do?:
+    - Modify the daemon configuration file within the /etc/init directory
+
+17) Which of the following Systemd commands can be used to stop a daemon called lala?:
+    - systemctl stop lala.service
+
+18) Which of the following commands can be used to start a UNIX SysV daemon called lala in runlevels 1, 2 and 3?:
+    - chkconfig --level 123 lala on
+
+19) What Systemd target corresponds to runlevel 5?:
+    - graphical.target
+
+20) What kernel option can be specified within a boot loader to force the system to boot to Single User Mode?:
+    - single
+
+
+
+MOD9: SYSTEM INITIALIZATION, X WINDOWS, AND LOCALIZATION
+Which command entered without arguments is used to display a list of processes running in the current shell?
+    - ps
+
+Where are individual user tasks scheduled to run with the cron daemon stored on a Fedora system?
+    - /var/spool/cron/username
+
+Which process has a PID of 1 and a PPID of 0?
+    - init/systemd
+
+A process spawning or initiating another process is referred to as:
+    - forking
+
+As daemon processes are not associated with terminals, you must use an option such as –e alongside the ps command to view them. True or False?:
+    - True
+
+Which of the following commands will most likely increase the chance of a process receiving more time slices?
+    - renice -12
+
+How can you bypass the wait function and send a user process to the background?:
+    - You can use the Ctrl+z key combination and the bg command
+
+The at command is used to :
+    - schedule processes to run at a single instance in the future
+
+What command is used to view and modify user jobs scheduled to run with cron?:
+    - crontab
+
+Every process has a process ID and a:
+    - parent process ID 
+
+The pkill command terminates:
+    - all instances of a process with the same name matched by a regular expression 
+
+Nice values are used to affect process priorities using a range between:
+    - –20 and 19 	
+
+What is the name given to a process not associated with a terminal?:
+    - daemon process 	
+
+What kill level signal cannot be trapped?:
+    - 9
+
+A runaway process that is faulty and consuming mass amounts of system resources:
+    - is a rogue process 
+
+When you run the ps command, how are daemon processes recognized?:
+    - There is a question mark in the TTY column
+
+Which command is used to gain real-time information about processes running on the system, with the most processor-intensive processes listed at the beginning of the list?:
+    - top
+
+Which command can be used to see processes running in the background?:
+    - jobs
+
+Which of the following commands will send a process's resources to /dev/null to kill the process for process ID 1357?:
+    - kill -9 1357
+
+Which of the following commands will show the current user cron jobs that have been created for the currently logged in user?:
+    - crontab -l 
+
+Which of the following states describe a process that is waiting for a parent process to release its PID?:
+    - zombie
+
+Which of the following commands can be used to see files that are currently being used by a specific process ID (PID)?:
+    - lsof 	
+
+Which of the following can be used preceding a command to prevent a process from terminating when the parent process terminates?:
+    - nohup
+
+Which of the following characters, when pressed while the top program is running, will allow you to change the niceness of a process?:
+    - r
+
+Which of the following is the highest value that can be set for the nice value which would result in a greater chance of a lower priority?:
+    - 19
+
+A system administrator wants to allow most users to be able to run cron jobs, but wants to specifically prevent a couple of users from doing so. Which of the following files could the administrator edit to disallow these users from creating cron jobs?:
+    - /etc/cron.deny 	
+
+
+MOD10: COMMON ADMIN TASKS
+The process of sending print jobs from the print queue to the printer is called :
+    - printing
+
+- You can clear a log file by redirecting nothing to it
+
+When a printer is disabled, the print queue accepts jobs into the 
+    print queue and holds them there until the printer is enabled again
+
+What is the term used to describe a user providing a user name and password to log in to a system?
+    - authentication
+
+Which command can you use to lock a user account?:
+    - usermod –L username 	
+
+Which command can be used to temporarily alter the primary group associated with a given user?:
+    - newgrp 	
+
+Which command can be used to send a print job to the default printer named Printer1? :
+    - lp –d Printer1 file
+    - lp file
+
+What is the name of the file that contains a listing of all users on the system and their home directories?:
+    - /etc/passwd
+
+UIDs and GIDs are unique to the system and, once used, can never be reused:
+    - False
+
+What is the name of the utility used to rotate log files?:
+     - logrotate
+
+You can lock a user account by changing the default login shell to an invalid shell in /etc/passwd:
+    - True
+
+When a printer is rejecting requests,
+     - the print queue does not accept jobs and sends a message to the user noting that the printer is unavailable
+
+When referring to the /etc/rsyslog.conf file, ____ specifies information from a certain area of the system, whereas ____ is the level of importance of that information:
+    - facility, priority
+
+Most log files on the system are found in which directory?:
+    - /var/log 	
+
+Which file contains default information such as UID and GID ranges and minimum password length to be used at user creation?:
+    - /etc/login.defs
+
+What command can you use to view journald log entries on a system that uses Systemd?:
+    -  journalctl 
+
+Which command would you use to unlock a user account?:
+    - passwd -u username
+
+Along with a listing of user accounts, the /etc/passwd file contains information on account expiry.:
+    - False
+
+You use lpstat and determine that a user named User1 has placed two large print jobs in the queue for Printer1 that have yet to start printing. They have print job IDs of Printer1-17 and Printer1-21, respectively. Which command would you use to remove these two jobs from the print queue?:
+    - cancel printer1-17 printer1-21
+
+Which command is used to delete a user account?:
+    - userdel username
+
+
+        
+TEST
+In which of the following directories can you place files that will be copied to new user directories when new users are created?:
+    - /etc/skel 	
+
+Which of the following commands can be used to set the number of days until user account jsmith with an expired password is disabled?:
+    - usermod -f 15 jsmith
+
+Which of the following is a special group that provides its members with the ability to run the su and sudo commands?:
+    - wheel
+
+Which of the following files stores information about failed logins on a Linux system?:
+    - /var/log/btmp
+
+Which of the following is the first field of the /etc/passwd file?:
+    - username
+
+Which of the following options can be used with the usermod command to change the description of the user account that is stored in the GECOS field?:
+    - -c
+
+Which of the following commands can be used to set the default printer for all users on a Linux system where printer1 is the name of the printer?:
+    - lpoptions -d printer1
+
+Which of the following commands will display the print jobs in the print queue for printer1 only?:
+    - lpstat -o printer1
+
+
+MOD11: COMPRESSION, SYSTEM BACKUP, SOFTWARE INSTALLATION
+1) Most source code is typically available on the Internet in tarball format or as a git repository. True or False?
+    - True
+
+2) Which dump level indicates a full backup?
+    - 0
+
+3) Which filename extension indicates a tarball?:
+    - tar.xz
+
+4) Files that have been compressed using the xz utility typically have the ______ extension.:
+    - xz
+
+5) The bzip2 and gzip utilities use similar compression algorithms. True or False?:
+    - False
+
+6) When compiling source code into a binary program, which command does the compiling using the GNU C Compiler?:
+    - make
+
+7) The -9 option to the gzip utility results in a higher compression ratio. True or False?:
+    - True
+
+8) You have created a full backup and four incremental backups. In which order must you restore these backups?:
+    - 0,1,2,3,4
+
+9) Which of the following commands extracts an archive?:
+    - cpio –vicdu –I /dev/fd0
+
+10) The Debian Package Manager (DPM) is the default package manager used by Fedora 28. True or False?:
+    - False
+
+11) Which of the following commands can be used to list the files contained within an installed RPM package?:
+    - rpm -ql packagename
+
+12) Which of the following commands can be used to remove the test DPM package, including any test configuration files?:
+    - apt purge test
+
+13) To install a new program from RPM software repositories on the Internet, you can use the dnf update programname command. True or False:
+    - False
+
+14) Which command can be used to create an image backup of a partition?:
+    - dd
+
+15) Which of the following commands should be run following the installation of a shared library to update the /etc/ld.so.conf and /etc/ld.so.cache files?:
+    - ldconfig
+
+16) Which option to the dpkg command can be used to list the files that comprise a package?:
+    -L
+
+17) Which option to the rpm command can be used to remove a package from the system?:
+    - e
+
+18) Which of the following commands creates an archive?:
+    - tar –zcvf /dev/st0 *
+
+19) When compiling source code into a binary program, which command performs a system check and creates the Makefile?:
+    - /configure
+
+20) Which of the following commands can be used to search for packages that contain the word oobla on RPM software repositories?:
+    - yum search oobla
+
+    
+TEST
+1) Which of the following can be used at the command line to download a file using the HTTP protocol? (Choose two.):
+    - wget and curl
+
+2) Which of the following file extensions are used by the Debian Package Manager?:
+    - .deb
+
+3) Which of the following is not a valid compression file extension for the Linux operating system?:
+    - .vz
+
+4) Which of the following commands will list missing libraries as not found if a necessary library is not installed?:
+    - ldd
+
+5) Which of the following is the full path and file name where the Debian Package Manager repositories can be configured?:
+    -  /etc/apt/sources.list
+
+6) Which of the following package managers are used to install RPM packages on the SUSE or openSUSE distributions by default?:
+    - Zypper
+
+7) Which of the following RPM options will update a software package to the newest version, or install the package if it does not already exist on a system?:
+    -U
+
+8) Which of the following is a tool that can be used to search Internet software repositories for RPM packages that map to your system's architecture, and automatically install or upgrade those packages on your system?:
+    - YUM
+
+
+MOD12: NETWORK CONFIG
+1) The NetworkManager or Systemd-networkd components must be installed on a Linux system in order to configure an IP address on a network interface. True or False?:
+    - False
+
+2) Which Windows program is often used to connect to a Linux server via SSH?:
+    - Putty
+
+3) Standalone daemons are started on demand using xinetd. True or False?
+    - False
+
+4) Which file stores the IP addresses of the DNS servers used to resolve host names if no DNS servers are specified within the network configuration file for the network interface?:
+    - /etc/resolv.conf 	
+
+5) To test DNS configuration by resolving a host name to an IP address, which command or commands can you use?:
+    - nslookup hostname,  dig hostname, host hostname
+
+6) Which file holds the methods to be used and the order in which they will be applied for host name resolution?:
+    - route, ip
+
+7) What are two means available to resolve a host name to the appropriate IP address? (Choose two answers.):
+    - /etc/nsswitch.conf
+
+8) What are two means available to resolve a host name to the appropriate IP address? (Choose two answers.):
+    - DNS, /etc/hosts
+
+9) You want to generate SSH keys for your user account and copy them to a remote computer to simplify future SSH authentication. What two commands can you use to perform these actions? (Choose two answers.):
+    - True
+
+10) You want to generate SSH keys for your user account and copy them to a remote computer to simplify future SSH authentication. What two commands can you use to perform these actions? (Choose two answers.):
+    - ssh-copy-id, ssh-keygen
+
+11) Which of the following can be used to provide graphical remote administration? (Choose all that apply.):
+    - ssh-X,VNC
+
+12) The daemons associated with network services listen for network traffic associated with a particular _____.:
+    - port
+
+13) The IP address of 127.0.0.1 is also referred to as the _____:
+    - loopback address
+
+14) The line that configures the host name for the computer at boot time can be found in /etc/hostname. True or False?:
+    - True
+
+15) Which commands can be used to display TCP/IP connections on your Linux system? (Choose all that apply.):
+    - netstat -t, ss -t
+
+16) Which of the following port numbers is associated with SSH?:
+    - 22
+
+17) Which file would you modify to permanently change the IP address of a network interface on a Fedora 28 system?:
+    - /etc/sysconfig/network-scripts/ifcfg-enp8s0
+
+18) Before a computer can use a router, what configuration information must it be provided?:
+    - default gateway
+
+19) Which of the following are stand-alone daemons?:    
+    - Apache,DNS
+
+20) Which of the following utilities can be used to check TCP/IP configuration and test network connectivity?:
+    - ifconfig, iwconfig, ping, nmcli
+
+
+TEST
+1) Which of the following commands will send 4 ICMP echo requests to a remote host named server1 to determine the round trip time it takes a packet to travel?:
+    - ping -c 4 server1
+
+2) You run the command hostname server1 and issue the reboot command. You notice that the host name has reverted back to what it was before the reboot. Which of the following commands should you have used to change the host name instead?:
+    - hostnamectl set-hostname server1
+
+3) Which of the following can be used to graphically remotely administer a Linux machine?:
+    - VNC
+
+4) The output of the ifconfig shows a HWaddr expressed in hexadecimal. How many bits is the hardware address shown made up of?:
+    - 48
+
+5) Upon running the ifconfig command, the IP address is listed along with the subnet mask in dotted decimal notation listed as 255.255.255.224. You have installed a remote access software that has an address field that requires the address to be configured in CIDR notation. Which of the following is the equivalent CIDR notation for the subnet mask listed?:
+    - /27
+
+6) Which of the following files does the hostnamectl command modify to set the hostname on a machine?:
+    - /etc/hostname
+
+7) Which of the following is a valid APIPA address?:
+    - 169.254.38.101
+
+8) Which of the following are valid statements in the /etc/resolv.conf file? (Choose two.):
+    - domain comptia.org
+    - nameserver 10.1.1.4
+
+
+MOD13: CONFIG NETWORK SERVICES AND CLOUD TECH
+1) PaaS cloud providers host sandboxed Web apps using containers for scalability. True or False?:
+    - true
+
+2) Which file stores the Apache configuration in Fedora 28?:
+    - /etc/httpd/conf/httpd.conf
+
+3) Which DNS resource record is an alias to other records?:
+    - CNAME
+
+4) You can purchase object storage from a cloud provider to provide persistent filesystem-based storage. True or False?:
+    - False;
+
+5) Which command can be used to connect to check the /etc/samba/smb.conf file for syntax errors?:
+    - testparm
+
+6) You have modified the /etc/aliases file to include a new email alias. However, when you send email to the alias, it cannot be delivered. What should you do?:
+    - newaliases
+
+7) Which command within the command-line FTP utility can be used to change the current directory on the local computer?:
+    - lcd
+
+8) Which command can be used to list containers that are currently running on the operating system only?:
+    - docker ps
+
+9) Which of the following must you perform to share a directory using NFS? (Choose all that apply.):
+    - Edit the /etc/exports file
+    - Run the exportfs -a command.
+    - Start or restart the NFS daemons.
+
+10) DHCP clients send a DHCPREQUEST packet when they require a new IP configuration. True or False?:
+    - true
+
+11) Which command can be used to connect to a remote Windows share called data on the server called fileserver?:
+    - smbclient //fileserver/data
+
+12) The lines within the Apache configuration file that modify the functionality of the Apache are called directives. True or False?
+    - true
+
+13) Which of the following can be used to create a database within PostgreSQL? (Choose all that apply.):
+    - the CREATE DATABASE statement within the PostgreSQL utility.
+    - the createdb command
+
+14) Stratum 1 NTP servers do not obtain time information from other NTP servers. True or False?:
+    - false
+
+15) What must you do to transform your computer into a DNS server? (Choose all that apply.):
+    - Create zone files
+    - Create NIS maps.
+    - Run the name daemon (named)
+
+16) What directory are you placed in when you log in as the anonymous user to an Ubuntu Server 18 FTP server?:
+    - /srv/ftp
+
+17) Chronyd is an NTP daemon that offers a faster response time compared to the ntpd daemon. True or False?:
+    - true
+
+18) Which term is used to describe the process of pushing new versions of a Web app to a cloud provider for testing?:
+    - CD
+
+19) Which command can you use to synchronize ntpd with an NTP time source?:
+    - ntpq
+
+20) Mary is a system administrator in your organization. She has recently made changes to the DHCP configuration file, but the DHCP daemon does not seem to recognize the new changes. What should she do?:
+    - Restart the DHCP daemon
+
+TEST
+1) Which of the following files contain the path and filename where DNS servers should be configured?:
+    - /etc/resolv.conf
+
+2) Which of the following is used on modern Linux distributions that reads YAML configuration files to add apps, modify existing configuration settings, or perform administrative tasks at boot time?:
+    - cloud-init
+
+3) Which type of CM software can connect to inventory members via SSH to perform configuration management activities?:
+    - agentless
+
+4) Which of the following types of CM software only requires that you specify the attributes that the inventory members must have within a configuration file, not the individual procedures that must be executed on them?:
+    - declarative configuration
+
+5) Which of the following is a valid SQL statement for adding a new row of data to a SQL database table?:
+    - INSERT INTO users (firstname, lastname) values ('George', 'Washington');
+
+6) Which of the following statements should be used at the end of a SQL statement where an aggregate function such as SUM or COUNT is used?:
+    - GROUP BY
+
+7) Which of the following commands can be used to display any email messages awaiting delivery alongside the reason that they were not delivered?:
+    - mailq
+
+8) Which of the following types of DNS records need to be configured to facilitate email delivery?
+    - MX
+
+MOD14: SECURITY, TROUBLESHOOTING AND PERFORMANCE
+1) 3 types of problems:
+    - Hardware, Software, User Interface
+
+2) Monitorying:
+    - examining log files, run performance utilities to identify problems and their causes
+
+3) Proactive maintenance:
+    - taking required steps to minimize chances of future problems and their impact. Ex. regular system backups, identifying potential problem areas.
+
+4) Reactive maintenance;
+    - correct problems when they arise. Document problem cause, solution and then adjust system to avoid it happening again.
+
+5) tail -f /<path-to/logfie:
+    - command that opens logfile for continuous viewing
+
+6) with systemd cmd journalctl to show continuous log entries:
+    - --follow option
+
+7) journalctl_COMM=crhonyd --followL:
+    - to view crhonyd events as they occur
+
+8) Hardware problems
+    - often improper configurations
+SCSI termination
+Hardware compatibility list
+POST or PDST test alerts - loose connections
+
+9) dmesg cmd:
+    - see boot up drivers
+
+10) /var/log/boot/log or /var/log/messages:
+    - where boot messages are logged
+
+11) Missing drivers:
+    - dmesg
+lsusb - lists USB devices
+lspci - lists pci devices
+lsmod - all mods the kernel loaded
+
+12) Software Problems:
+    - process restrictions
+missing program libraries/files
+conflicting programs
+dependencies - libraries/packages (most check at installation, but not at running time)
+
+13) fuser <filename>:
+    - command to see if file is being used and by who
+
+14) rpm -v
+    - id missing files
+
+15) lld <process>:
+    - shows shared libraries needed by a process
+
+16) Single User Mode:
+    - Linux running with one user allowed only - root
+
