@@ -31,8 +31,10 @@ class rectangleType
         rectangleType operator+(const rectangleType& rectangle) const;
         rectangleType operator*(const rectangleType& rectangle) const;
         // Increment/decrement operator
+        // Post-fix
         rectangleType& operator++();
         rectangleType& operator--();
+        // Prefix
         rectangleType operator++(int);
         rectangleType operator--(int);
 

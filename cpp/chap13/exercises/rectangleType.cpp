@@ -100,7 +100,7 @@ rectangleType& rectangleType::operator--()
 }
 
 // Post-fix incremnent/decrement operator
-rectangleType operator++(int)
+rectangleType rectangleType::operator++(int)
 {
     /* Creates copy of current object
      However, instead of returning the incremented object, it returns the original copy (temp). This mirrors the behavior of the 
@@ -111,7 +111,7 @@ rectangleType operator++(int)
     return temp;
 }
 
-rectangleType operator--(int)
+rectangleType rectangleType::operator--(int)
 {
     rectangleType temp = *this;
     --(*this);
