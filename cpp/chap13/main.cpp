@@ -8,6 +8,7 @@ int main()
 {
     rectangleType myRectangle(10, 20);
     rectangleType yourRectangle;
+    rectangleType theRectangle;
 
     cout << fixed << showpoint << setprecision(2);
     cout << endl;
@@ -47,8 +48,8 @@ int main()
     cout << endl;
 
     // Overloading assignment operator
-    myRectangle = myRectangle;
-    
+    theRectangle = myRectangle;
+    cout << "theRectangle: " << theRectangle << endl;
 
     return 0;
 }

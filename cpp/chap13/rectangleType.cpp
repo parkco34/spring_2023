@@ -129,3 +129,14 @@ ostream& operator<<(ostream& osObject, const rectangleType& rectangle)
              << ", Width: " << rectangle.getWidth() << '\n';
     return osObject;
 }
+
+const rectangleType& rectangleType::operator=(const rectangleType& rectangle)
+{
+    if (this != &rectangle)
+    {
+        length = rectangle.length;
+        width = rectangle.width;
+    }
+
+    return *this;
+}

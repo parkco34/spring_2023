@@ -32,6 +32,9 @@ class rectangleType
         // Overloaded nonmember functions
         friend istream& operator>>(istream&, rectangleType&);
         friend ostream& operator<<(ostream&, const rectangleType&);
+
+        // Overloading the assignment operator
+        const rectangleType& operator=(const rectangleType&);
     
     private:
         double width, length;

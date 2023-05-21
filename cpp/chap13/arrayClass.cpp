@@ -4,7 +4,10 @@ using namespace std;
 class arrayClass
 {
     public:
-        const arrayClass& operator=(const arrayClass&);
+        arrayClass(int size = 10);  // Added constructor
+        ~arrayClass();  // Added destructor
+        const arrayClass& operator=(const arrayClass& otherList);
+        friend ostream& operator<<(ostream&, const arrayClass&);
 
     private:
         int *list;  // Used to create an array to store integers
@@ -12,20 +15,15 @@ class arrayClass
         int maxSize;
 };
 
-// without if statement
-// const arrayClass& arrayClass::operator=(const arrayClass& otherList)
-// {
-//     delete [] list;
-//     maxSize = otherList.maxSize;
-//     length = otherList.length;
+arrayClass::arrayClass(int size) : maxSize(size), length(0) { // Initialize maxSize, length, and allocate list
+    list = new int[maxSize];
+    for(int i=0; i < maxSize; ++i)
+        list[i] = 0;
+}
 
-//     list = new int[maxSize];
-
-//     for (int i=0; i<length; i++)
-//         list[i] = otherList.list[i];
-
-//     return *this;
-// } // bad code
+arrayClass::~arrayClass() {  // Destructor implementation
+    delete[] list;
+}
 
 const arrayClass& arrayClass::operator=(const arrayClass& otherList)
 {
@@ -42,12 +40,23 @@ const arrayClass& arrayClass::operator=(const arrayClass& otherList)
     }
 
     return *this;
-} // good code (with if statement
+}
+
+ostream& operator<<(ostream& osObject, const arrayClass& array)
+{
+    for (int i=0; i<array.length; i++)
+        osObject << array.list[i] << " ";
+
+    return osObject;
+}
 
 int main()
 {
+    const int MAX_SIZE = 10;
     arrayClass myList;
-    myList = myList;
+    arrayClass otherList;
+    
+    myList = otherList;
 
     return 0;
 }
