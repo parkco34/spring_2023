@@ -26,7 +26,6 @@ void classExample::print() const
     cout << "x = " << x << endl;
 }
 
-
 struct studentType
 {
     char name[26];
@@ -86,10 +85,6 @@ int main()
         list[i] = i * i;
     }
 
-    // generates error
-//    for (int x: list) {
-//        cout << x << " ";
-//    }
     cout << "=========================================================" << endl;
     cout << "Dynamic two-dimensional Arrays" << endl;
     int **board, rows, columns;

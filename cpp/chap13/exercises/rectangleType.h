@@ -40,9 +40,12 @@ class rectangleType
         rectangleType operator++(int);
         rectangleType operator--(int);
         // Overloading array index operator
-        rectangleType operator[](int index);
-        
+        double& operator[](int index); // Non-constant version
+        const double& operator[](int index) const; // Constant version
 
+    private:
+        int *list; // pointer to array
+        int arraySize;
 };
 
 #endif

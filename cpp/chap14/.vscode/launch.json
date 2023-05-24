@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/whitney/spring_2023/cpp/chap14",
+      "program": "/Users/whitney/spring_2023/cpp/chap14/build/Debug/outDebug"
+    }
+  ]
+}

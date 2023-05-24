@@ -17,12 +17,17 @@ using namespace std;
 
 int main()
 {
+    const int arraySize = 10;
     double length, width;
     cout << "Enter length and width of box: " << endl;
     cin >> length >> width;
 
     rectangleType box(length, width);
     rectangleType box2(length + 37, width * 23);
+    // Array overloading
+    rectangleType rect(10, 5);
+    cout << "Array-Length: " << rect[0] << endl;
+    cout << "Array-Width: " << rect[1] << endl;
 
     box.print();
     box2.print();

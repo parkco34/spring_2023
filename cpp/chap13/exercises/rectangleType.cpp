@@ -118,4 +118,24 @@ rectangleType rectangleType::operator--(int)
     return temp;
 }
 
+// Overload operator [] for nonconstant arrays
+double& rectangleType::operator[](int index)
+{
+    if (index < 0 || index > 1)
+    {
+        cout << "Index out of range" << endl;
+        exit(0);
+    }
+    return index == 0 ? length : width;
+}
 
+// overload operator [] for constant arrays
+const double& rectangleType::operator[](int index) const
+{
+    if (index < 0 || index > 1)
+    {
+        cout << "Index is out range" << endl;
+        exit(0);
+    }
+    return index == 0 ? length : width;
+}
