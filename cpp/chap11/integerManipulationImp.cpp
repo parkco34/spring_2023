@@ -58,9 +58,17 @@ void integerManipulation::classifyDigits()
     }
 }
 
-int integerManipulation::sumDigit()
+int integerManipulation::sumDigits()
 {
+    int sum = 0;
+    int64_t temp = abs(num);
+    string strNum = to_string(temp);
 
+    for (char c: strNum) {
+        sum += (c - '0');
+    }
+
+    return sum;
 }
 
 void integerManipulation::reverseNum()
@@ -92,6 +100,3 @@ ostream& operator<<(ostream& os, const integerManipulation myInteger)
     return os;
 }
 
-int integerManipulation::sumDigits()
-{
-}
