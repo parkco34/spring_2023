@@ -15,15 +15,15 @@ class integerManipulation
     public:
         // Accessors
         int64_t getNum();
+        int getEvens();
+        int getOdds();
+        int getZeros();
         // Mutators
         void setNum(int64_t n);
 
         void reverseNum();
         // Count even/odd/zeros digits
         void classifyDigits();       
-        int getEvens();
-        int getOdds();
-        int getZeros();
         int sumDigits();
         // Constructor with default param
         integerManipulation(int64_t n=0);

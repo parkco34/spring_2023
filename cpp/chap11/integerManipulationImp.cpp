@@ -20,6 +20,21 @@ int64_t integerManipulation::getNum()
     return num;
 }
 
+int integerManipulation::getEvens()
+{
+    return evens;
+}
+
+int integerManipulation::getOdds()
+{
+    return odds;
+}
+
+int integerManipulation::getZeros()
+{
+    return zeros;
+}
+
 // Mutators
 void integerManipulation::setNum(int64_t n)
 {
@@ -41,11 +56,12 @@ void integerManipulation::classifyDigits()
         else
             odds++;
     }
-    cout << endl;
-    cout << "Evens: " << evens << endl;
-    cout << "Odds: " << odds << endl;
-    cout << "Zeros: " << zeros << endl;
-} 
+}
+
+int integerManipulation::sumDigit()
+{
+
+}
 
 void integerManipulation::reverseNum()
 {
@@ -76,4 +92,6 @@ ostream& operator<<(ostream& os, const integerManipulation myInteger)
     return os;
 }
 
-
+int integerManipulation::sumDigits()
+{
+}
