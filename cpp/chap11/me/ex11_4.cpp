@@ -12,11 +12,11 @@ int main()
     cin >> number;
     integerManipulation myInteger(number);
     // Counting evens/odds/zeros
+    myInteger.classifyDigits();
     cout << "Getting the even/odd/zero counts" << endl;
     cout << "Evens: " << myInteger.getEvens() << endl;
     cout << "Odds: " << myInteger.getOdds() << endl;
     cout << "Zeros: " << myInteger.getZeros() << endl;
-    myInteger.classifyDigits();
 
     // Reversing integer
     cout << "Reversing the integer" << endl;
