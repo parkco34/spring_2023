@@ -19,7 +19,10 @@ class clockType
         void printTime() const;
         int elaspedSeconds() const;
         int remainingSeconds() const;
-        void clockDifference(const clockType&, const clockType&) const;
+        void clockDifference(const clockType&) const;
+        // Constructors
+        clockType(int, int, int);
+        clockType(); // Default constructor
 
     private:
         int hr;
