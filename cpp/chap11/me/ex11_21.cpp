@@ -6,11 +6,17 @@
 //The program then uses the first 1,230 prime numbers to determine if a number between 2 and 100,000,000 is prime. If a number is not prime, then output at least one of its prime factors.
 #include "primeFactorization.h"
 #include <iostream>
+#include <cstdint>
 using namespace std;
 
 int main()
 {
-    primeFactorization properNumber;    
+    int64_t number;
+    primeFactorization properNumber; 
+    cout << "Enter a number between 2 and 270,000,000,000,000: ";
+    cin >> number;
+    properNumber.setNum(number);
+    properNumber.factorization();
 
     return 0;
 }
