@@ -7,4 +7,10 @@ class rectangleType
         double area() const;
         double perimeter() const;
         void print() const;
-}
+        //Constructors
+        rectangleType();
+        rectangleType(double, double);
+
+    private:
+        double length, width;
+};
