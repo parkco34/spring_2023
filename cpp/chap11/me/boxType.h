@@ -6,5 +6,8 @@ class boxType: public rectangleType
         double getHeight() const;
         // Ger surface area of box
         double area() const;
-        
-}
+        double volume() const;
+        void print() const;
+        boxType();
+        boxType(double l, double w, double h);
+};
