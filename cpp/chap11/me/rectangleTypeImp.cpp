@@ -1,4 +1,6 @@
 #include "rectangleType.h"
+#include <iostream>
+using namespace std;
 
 rectangleType::rectangleType(double l, double w)
 {
@@ -24,27 +26,27 @@ void rectangleType::setDimension(double l, double w)
         width = 0;
 }
 
-double getLength() const
+double rectangleType::getLength() const
 {
     return length;
 }
 
-double getWidth() const
+double rectangleType::getWidth() const
 {
     return width;
 }
 
-double area() const
+double rectangleType::area() const
 {
     return length * width;
 }
 
-double perimeter() const
+double rectangleType::perimeter() const
 {
     return 2 * (length + width);
 }
 
-void print() const
+void rectangleType::print() const
 {
     cout << "Length: " << length << endl;
     cout << "Width: " <<  width << endl;

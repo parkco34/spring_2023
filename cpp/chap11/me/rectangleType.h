@@ -11,6 +11,6 @@ class rectangleType
         rectangleType();
         rectangleType(double, double);
 
-    private:
+    protected:
         double length, width;
 };
