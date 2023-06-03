@@ -17,7 +17,10 @@ void boxType::print() const
 
 double boxType::area() const
 {
-    return getLength() * getWidth();
+    // Surface area of box
+    return 2 * (getLength() * getWidth()
+            + getLength() * height
+            + getWidth() * height)
 }
 
 double boxType::volume() const
