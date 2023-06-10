@@ -20,7 +20,7 @@ double boxType::area() const
     // Surface area of box
     return 2 * (getLength() * getWidth()
             + getLength() * height
-            + getWidth() * height)
+            + getWidth() * height);
 }
 
 double boxType::volume() const

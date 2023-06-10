@@ -12,11 +12,11 @@ using namespace std;
 int main()
 {
     int64_t number;
-    primeFactorization properNumber; 
+    // primeFactorization properNumber; 
     cout << "Enter a number between 2 and 270,000,000,000,000: ";
     cin >> number;
-    properNumber.setNum(number);
-    properNumber.factorization();
+    // properNumber.setNum(number);
+    // properNumber.factorization();
 
     return 0;
 }

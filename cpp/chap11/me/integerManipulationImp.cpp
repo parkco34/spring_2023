@@ -42,6 +42,7 @@ void integerManipulation::setNum(int64_t n)
 }
 
 // Determines if digits are even/odd/zeros and makes count of each
+// Turns integer into a string to be parsed and found what integer represention of each char is, using ASCII table
 void integerManipulation::classifyDigits()
 {
     int64_t temp = abs(num);
@@ -93,10 +94,47 @@ void integerManipulation::reverseNum()
     num = reverseNum;
 }
 
+bool integerManipulation::isPalindrome(int64_t number)
+{
+    this->reverseNum();
+
+    if (num == number)
+        return true;
+    else
+        return false;
+}
+
 // Overload operators
 ostream& operator<<(ostream& os, const integerManipulation myInteger)
 {
     os << myInteger.num;
     return os;
+}
+
+// Determine if prime
+bool integerManipulation::isPrime(int64_t number)
+{   
+    if (number == 2)
+        return true;
+
+    else if (number % 2 == 0)
+        return false;
+
+    else {
+        // As long as the square of the index variable is less than the number, keep checking by iterating by 2
+        for (int i = 3; i * i <= number; i += 2) {
+            if (number % i == 0)
+                return false;
+            else
+                return true;
+        }
+    }
+}
+
+// If Integer is prime, output index of prime
+// else output prime factors
+void integerManipulation::primeFactorIndices()
+{
+    cout << "Still haven't got this done yet!" << endl;
 }
 

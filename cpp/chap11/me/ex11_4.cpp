@@ -25,7 +25,22 @@ int main()
     cout << "New number: " << myInteger << endl;
 
     cout << "Sum: " << myInteger.sumDigits() << endl;
+    // Palindrome?
+    cout << "Is it a Palindrome?";
+    if (myInteger.isPalindrome(number))
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
 
+    // Is the integer prime?
+    cout << "Is it prime? ";
+    if (myInteger.isPrime(number))
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
+
+    cout << "Find indices of prime integers of each prime in the original integer:" << endl;
+    myInteger.primeFactorIndices();
 
     return 0;
 }

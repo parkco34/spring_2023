@@ -27,8 +27,14 @@ class integerManipulation
         int sumDigits();
         // Constructor with default param
         integerManipulation(int64_t n=0);
+        bool isPalindrome(int64_t number);
+        // Determine if integer is prime
+        bool isPrime(int64_t number);
+        // If Integer is prime, output index of prime
+        // else output prime factors
+        void primeFactorIndices();
         // Overload opeartors
-        friend ostream& operator<<(ostream& os, const integerManipulation theInteger);
+        friend ostream& operator<<(ostream& os, const               integerManipulation theInteger);
 
     private:
         int64_t num;
