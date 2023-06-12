@@ -34,7 +34,7 @@ class integerManipulation
         // else output prime factors
         void primeFactorIndices();
         // Overload opeartors
-        friend ostream& operator<<(ostream& os, const               integerManipulation theInteger);
+        friend ostream& operator<<(ostream& os, const integerManipulation theInteger);
 
     private:
         int64_t num;

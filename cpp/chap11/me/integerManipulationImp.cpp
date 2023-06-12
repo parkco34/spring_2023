@@ -72,6 +72,8 @@ int integerManipulation::sumDigits()
     return sum;
 }
 
+// Something's wrong with this because it's not reversing the number in 
+// the isPalindrome method!
 void integerManipulation::reverseNum()
 {
     bool isNeg = false;
@@ -91,14 +93,17 @@ void integerManipulation::reverseNum()
         // If original number was negative, convert reverseNum to negative
         reverseNum = -reverseNum;
     }
+    cout << "\nNum: " << num << endl;
     num = reverseNum;
 }
 
 bool integerManipulation::isPalindrome(int64_t number)
 {
     this->reverseNum();
+    cout << "\nNum: " << num << endl;
+    cout << "NUmber: " << number << endl;
 
-    if (num == number)
+    if (number == num)
         return true;
     else
         return false;
@@ -125,9 +130,9 @@ bool integerManipulation::isPrime(int64_t number)
         for (int i = 3; i * i <= number; i += 2) {
             if (number % i == 0)
                 return false;
-            else
-                return true;
         }
+
+        return true;
     }
 }
 
