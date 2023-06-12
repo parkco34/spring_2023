@@ -31,8 +31,8 @@ class integerManipulation
         // Determine if integer is prime
         bool isPrime(int64_t number);
         // If Integer is prime, output index of prime
-        // else output prime factors
-        void primeFactorIndices();
+        // else output prime factors, returning the index
+        int primeFactorIndices();
         // Overload opeartors
         friend ostream& operator<<(ostream& os, const integerManipulation theInteger);
 

@@ -93,16 +93,12 @@ void integerManipulation::reverseNum()
         // If original number was negative, convert reverseNum to negative
         reverseNum = -reverseNum;
     }
-    cout << "\nNum: " << num << endl;
+
     num = reverseNum;
 }
 
 bool integerManipulation::isPalindrome(int64_t number)
 {
-    this->reverseNum();
-    cout << "\nNum: " << num << endl;
-    cout << "NUmber: " << number << endl;
-
     if (number == num)
         return true;
     else
@@ -136,10 +132,11 @@ bool integerManipulation::isPrime(int64_t number)
     }
 }
 
-// If Integer is prime, output index of prime
-// else output prime factors
-void integerManipulation::primeFactorIndices()
+// If Integer is prime, store every prime in an array and determine the index of the given prime
+int integerManipulation::primeFactorIndices()
 {
-    cout << "Still haven't got this done yet!" << endl;
+    // Store every prime in an array (DYNAMIC??) up to the given prime number
+
+    return -1; // Returning some other value to indicate that num is no a prime
 }
 
